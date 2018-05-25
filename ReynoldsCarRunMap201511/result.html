@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>探秘奇图</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{ padding:0; margin:0; overflow:hidden; }
+div{ overflow:hidden; }
+.Allstuff {margin:0; padding:0; overflow:hidden; position:relative; }
+img{ vertical-align:top; padding:0; border:none; }
+.page{ position:absolute; top:0px; left:0px; overflow:hidden; }
+.com_imgbg{ position:absolute; width:100%; top:0px; left:0px; }
+.com_btn{ position:absolute; width:100%; left:0px; }
+
+#btn_rightnow { position:absolute; width:42%; bottom:16%; left:29%; z-index:999;}
+#btn_activeinfo { position:absolute; width:40%; top:86.7%; left:30%; z-index:999;}
+#btn_submit { position:absolute; width:42%; top:70%; left:29%; z-index:999;}
+.btn_share { position:absolute; width:38%; top:72%; left:31%; z-index:999;}
+#btn_back { position:absolute; width:38%; top:67%; left:31%; z-index:999;}
+.form { position:relative; width:60%; top:50%; left:20%; z-index:1000; overflow:visible; }
+.form input {margin-bottom:0.85rem; text-align:center; display:block; width:100%; height:2.3rem; line-height:2.3rem; color:#9b9b9b; border:none; background-color:transparent; background-image:url(img/result/addresstxt.png);background-size: 100% 100%;}
+.dialog { display: none; z-index:1000; overflow:hidden; }
+.dialog-close { position:absolute; width:34px; height:34px; top:13%; right:12%; z-index:1001;}
+.addressform { position:relative; width:60%; top:64%; left:20%; z-index:1000; overflow:visible; }
+.addressform input { text-align:center; display:block; width:100%; height:2.4rem; line-height:2.4rem; color:#606060; border:none; background-color:transparent; background-image:url(img/result/addresstxt.png);background-size: 100% 100%;}
+.btn_address { position:absolute; width:48%; top:74%; left:26%; z-index:999;}
+.pop{ position:absolute; top:0px; overflow:hidden; }
+.popshare{ position:absolute; width:100%; height:100%; }
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.animated.flipOutX {
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+#blur{ position:absolute; width:800px; height:800px; top:0px; left:0px; display:none; z-index:9; }
+.input{ -webkit-transform:rotate(0deg); }
+
+.details_text{ position:relative; width:80%; height:59%; overflow:scroll; margin:0 auto; margin-top:49%; }
+.details-c{ width:100%; }
+
+#loading{ position:absolute; width:100%; height:100%; top:0px; left:0px; z-index:9999; background-color:#000000; background-image:url(img/loadbg.jpg); background-repeat: no-repeat; }
+.load{ position:absolute; width:100%; top:40%; }
+.loadtxt{ position:absolute; width:100%; top:55%; }
+@-webkit-keyframes around{
+    0%{ -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
+
+@keyframes around{
+    0%{ transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+.around{
+    -webkit-animation:around linear infinite 1.4s;;
+    animation:around linear infinite 1.4s;
+}
+
+input.error {color:#da1b1a;}
+
+#music{ position:absolute; z-index:9999; top:6%; right:1%; width:13%; opacity:0.5; }
+
+@keyframes music{
+      0%, 50%, 100% {
+        opacity: 0.4;
+       transform:rotate(-20deg)
+      }
+    
+      25%, 75% {
+        opacity: 1;
+        transform:rotate(20deg)
+      }
+}
+
+@-webkit-keyframes music{
+      0%, 50%, 100% {
+        opacity: 0.4;
+        -webkit-transform:rotate(-20deg)
+      }
+    
+      25%, 75% {
+        opacity: 1;
+        -webkit-transform:rotate(20deg)
+      }
+}
+
+.music{
+    -webkit-animation: music 3s ease infinite;
+            animation: music 3s ease infinite;
+}
+#load_bar{ width:0%; position:absolute; opacity:0; }
+.load_bar{ position:absolute; top:0px; left:0px; width:100%; }
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-28973716-1', 'auto');  
+  
+  
+  ga('set', 'dimension3', '移动端');
+    
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');  
+  ga(function(tracker) {
+    ga('set', 'dimension4', tracker.get('clientId'));
+  });
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">window._pt_lt = new Date().getTime();</script>
+</head>
+<body>
+<img src="img/share.jpg" style="height:1px; position:absolute; z-index:-1">
+<div id="loading">
+    <img src="img/loading/loading.jpg" class="load_bar">
+    <div id="load_bar">
+        <img src="img/loading/loadingb.png" class="load_bar">
+    </div>
+    <img src="img/loading/loading.png" class="load_bar">
+</div>
+<div class="Allstuff">
+    <img src="img/result/prizebg.jpg" class="com_imgbg">
+    <div class="page">
+        <img src="img/result/info.png?v=1" class="com_imgbg bg" id="prizebg">
+        <img src="img/result/btn_rightnow.png" id="btn_rightnow" data-role="0">
+        <p id="btn_activeinfo">&nbsp;</p>
+    </div>
+    <img src="img/result/dialog_bg.png" id="blur">
+    
+    <div class="pop dialog" id="detail-page">
+        <img src="img/result/activeinfo.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <div class="details_text">
+            <div>
+                <img src="img/details-c.png" class="details-c">
+            </div>
+        </div>
+    </div>
+    
+    <div class="pop dialog" id="userinfo-page">
+        <img src="img/result/userinfo.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <div class="form">
+            <input type="text" id="name" placeholder="姓名" class="input">
+            <input type="text" id="phone" placeholder="电话" class="input" maxlength="11">
+        </div>
+        <img src="img/result/btn_submit.png" id="btn_submit">
+    </div>
+    <div class="pop dialog" id="prize0-page">
+        <img src="img/result/prize0.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <img src="img/result/btn_share.png" class="btn_share" id="">
+    </div>
+    <div class="pop dialog" id="prize1-page">
+        <img src="img/result/prize1.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <div class="addressform">
+            <!--<img src="img/result/addresstxt.png" class="com_imgbg">-->
+            <input type="text" placeholder="填写您的地址" class="input addresstxt">
+        </div>
+        <img src="img/result/btn_submit.png" class="btn_address">
+    </div>
+    <div class="pop dialog" id="prize2-page">
+        <img src="img/result/prize2.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <div class="addressform">
+            <img src="img/result/addresstxt.png" class="com_imgbg">
+            <input type="text" placeholder="填写您的地址" class="input addresstxt">
+        </div>
+        <img src="img/result/btn_submit.png" class="btn_address">
+    </div>
+    <div class="pop dialog" id="prize3-page">
+        <img src="img/result/prize3.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <div class="addressform">
+            <img src="img/result/addresstxt.png" class="com_imgbg">
+            <input type="text" placeholder="填写您的地址" class="input addresstxt">
+        </div>
+        <img src="img/result/btn_submit.png" class="btn_address">
+    </div>
+    <div class="pop dialog" id="submitok-page">
+        <img src="img/result/submitok.png" class="com_imgbg bg">
+        <p class="dialog-close"></p>
+        <img src="img/result/btn_share.png" class="btn_share" id="">
+    </div>
+    <div class="popshare dialog" id="share-page">
+        <img src="img/result/share.png?v=1" class="com_imgbg bg">
+    </div>
+</div>
+
+    <img src="img/price/music.png" id="music" class="music">
+    
+    <audio autoplay id="bgmusic" loop>  
+        <source src="img/h.mp3" type="audio/mpeg" >
+    </audio>
+<script type="text/javascript">
+ window._pt_sp_2 = [];
+ _pt_sp_2.push('setAccount,500fe99b');
+ var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+ 
+ (function() {
+  var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+  atag.src = _protocol + 'js.ptengine.cn/js/pta.js';
+  var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+  stag.src = _protocol + 'js.ptengine.cn/js/pts.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+ })();
+</script>
+</body>
+<!--<script src="js/jquery-1.11.3.min.js"></script>-->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+var f = 480/854;
+
+var win = {
+    w : $(window).width(),
+    h : $(window).height()
+}
+$('#load_bar').css('height',win.w/f);
+$('.load_bar').css('width',win.w);
+
+var musicBtn = {
+    state : true,
+    musicPlay : function() {
+        $('#music').addClass('music');
+        var music = document.getElementById('bgmusic');  
+        music.play();           // 播放，或者重新播放
+    },
+    musicStop : function() {
+        $('#music').removeClass('music');
+        var music = document.getElementById('bgmusic');  
+        music.pause();           // 暂停播放
+    },
+    action : function () {
+        if( musicBtn.state ) {
+            musicBtn.musicStop();
+            musicBtn.state = false;
+        } else {
+            musicBtn.musicPlay();
+            musicBtn.state = true;
+        }
+    }
+}
+
+$('#music').on('touchstart',function(){
+    musicBtn.action()
+})
+
+// 分享跳转
+/*
+if (location.hash == '#shareflag') {
+    location.href='index.html';
+}
+location.href += '#shareflag';
+*/
+
+var loadingImages = [
+'img/loading/loading.jpg',
+'img/loading/loadingb.png',
+'img/loading/loading.png',
+"img/result/prizebg.jpg",
+"img/result/info.png?v=1",
+"img/result/btn_rightnow.png",
+"img/result/dialog_bg.png",
+"img/result/activeinfo.png",
+"img/details-c.png",
+"img/result/userinfo.png",
+"img/result/btn_submit.png",
+"img/result/prize0.png",
+"img/result/btn_share.png",
+"img/result/prize1.png",
+"img/result/addresstxt.png",
+"img/result/prize2.png",
+"img/result/prize3.png",
+"img/result/submitok.png",
+"img/result/share.png?v=1",
+"img/result/back.png"
+];
+resourceDir = "";
+
+function loadResources(urls, progress) {
+    var loadedCount = 0;
+    var loaded = function() {
+        ++loadedCount;
+        if (progress) progress(urls.length, loadedCount, this);
+    };
+    for (var i = 0; i < urls.length; ++i) {
+        if (!urls[i]) {
+            loaded();
+            return;
+        }
+        var img = new Image();
+        img.onload = loaded;
+        img.onabort = loaded;
+        img.onerror = loaded;
+        img.src = resourceDir + urls[i];
+    }
+}
+loadResources(loadingImages, function(n, i, img) {
+    var stmei
+	$('#load_bar').css('opacity',1);
+    $('#load_bar').css('width',Math.round(i * 100 / n) + "%");
+    if (i != n) return;
+    stmei = setTimeout(function() {
+        $("#loading").fadeOut();
+    }, 800);
+
+    function myStopFunction() {
+        clearTimeout(stmei);
+    }
+})
+
+function bulid(){
+    var f = 360 / 640;
+    $('.pop').css({'width':win.h*f,'height':win.h,'left':(win.w-win.h*f)/2});
+    $('.page').css({'width':win.h*f,'height':win.h,'left':(win.w-win.h*f)/2});
+    $('.Allstuff').css({'width':win.w,'height':win.h});
+}
+bulid()
+
+function blurs() { return;
+    this.blurs = false;
+    this.show = function (){
+        if(this.blurs){
+            $('#blur').fadeOut('slow');
+        } else {
+            $('#blur').fadeIn('slow');
+        }
+    }
+}
+
+function opendialog(pageid) {
+    $('.dialog').hide();
+    $(pageid).fadeIn();
+    $('#blur').fadeIn();
+}
+
+function closedialog() {
+    $('.dialog').fadeOut();
+    $('#blur').fadeOut();
+}
+
+
+var blur1 = new blurs();
+var phone = '';
+$(function() {
+    $('input').focus(function() {
+        if ($(this).hasClass('error')) {
+            $(this).val('');
+            $(this).removeClass('error');
+        }
+    });
+    $('#btn_rightnow').on('touchstart', function() {
+        if ($(this).attr('data-role') == '1') {
+            window.location.href='index.html';
+        }
+        $(this).addClass('animated pulse');
+        setTimeout(function() {
+            opendialog('#userinfo-page');
+            $('#btn_rightnow').removeClass('animated pulse');
+        }, 800);
+    });
+    $('#btn_activeinfo').on('touchstart',function(){
+        opendialog('#detail-page');
+    });
+
+    $('#detail-page').on('touchstart',function(){
+        event.stopPropagation();
+    })
+
+    $('#btn_submit').on('touchstart', function() {
+        var name = $('#name').val();
+        phone = $('#phone').val();
+        if (name == '') {
+            $('#name').val('请输入姓名');
+            $('#name').addClass('error');
+            return;
+        }
+        if (phone == '') {
+            $('#phone').val('请输入电话');
+            $('#phone').addClass('error');
+            return;
+        }
+        var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+        if (!reg.test(phone)) {
+            $('#phone').val('手机号码有误');
+            $('#phone').addClass('error');
+            return;
+        };
+        $('#loading').show();
+        ga('send', 'event', 'C17_Explore game', '确认提交1', 'C17A01L00Explore game页面确认提交1');
+        ga('send', 'pageview', '/VP/Explore game/lottery-finished',{'dimension1':  name + '_' +  phone.substring(3,11) + '_'});
+        $.get('php/index.php', data={username:name, tel:phone, a:'addUser'}, function(rst) {
+            $('#loading').hide();
+            if (rst.code < 0) {
+                alert(rst.msg);
+                ga('send', 'pageview', '/VP/Explore game/lottery-failed',{'dimension2': rst.code+ '_'+ rst.msg })
+            } else {
+                $('#name').val('');
+                $('#phone').val('');
+                opendialog('#prize'+rst.code+'-page');
+                if (rst.code > 0) {
+                    ga('send', 'event', 'C17_Explore game', '中奖', 'C17A01L00Explore game页面中奖');
+                }
+            }
+        }, 'json');
+        $('#btn_rightnow').attr('src', 'img/result/back.png');
+        $('#btn_rightnow').attr('data-role', '1');
+    });
+    $('.dialog-close').on('touchstart', function() {
+        closedialog();
+    });
+    $('.btn_share').on('touchstart', function() {
+        ga('send', 'event', 'C17_Explore game', '分享', 'C17A01L00Explore game页面分享');
+        $('#share-page').fadeIn();
+    });
+    $('#share-page').on('touchstart', function() {
+        $(this).fadeOut();
+    });
+    $('.btn_address').on('touchstart', function() {
+        var address = $(this).parent().find('input').val();
+        if (address == '') {
+            $(this).parent().find('input').val('请输入地址');
+            $(this).parent().find('input').addClass('error');
+            return;
+        };
+        var that = this;
+        $.get('php/index.php', data={address:address, mytel:phone, a:'addAddress'}, function(rst) {
+            if (rst.code < 0) {
+                ga('send', 'event', 'C17_Explore game', '确认提交2', 'C17A01L01Explore game页面确认提交2不成功');
+                alert(rst.msg);
+            } else {
+                ga('send', 'event', 'C17_Explore game', '确认提交2', 'C17A01L02Explore game页面确认提交2成功');
+                opendialog('#submitok-page');
+            }
+        }, 'json');
+    });
+    $('#btn_back').on('touchstart', function() {
+        location.href="index.html";
+    });
+});
+</script>
+
+<script src="./js/share.js"></script>
+<script>
+window.shareData = {
+    title: '寻宝图已上线，请充值好智商or运气!',
+    desc: '跨世纪寻宝计划已开启，是拼智商，还是靠运气，就看你实力了。',
+    link: 'http://bluescfg.sinaapp.com/?utm_source=Wechat&utm_medium=Share&utm_term=Share&utm_content=Share&utm_campaign=Carshowh5',
+    imgUrl: 'http://bluescfg.sinaapp.com/img/share.jpg',
+    success: function () {
+    },
+    cancel: function () { 
+}};
+setupwx();
+ </script>
+</html>

@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    padding:0px;
+    margin:0px;
+    overflow:hidden;
+}
+img { vertical-align:top; }
+.commTar{-webkit-transition:all ease .8s; transition:all ease .8s;}
+/*** header and nav bar ***/
+.header,.nav{
+    position:relative;
+    width:100%;
+}
+.content{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+.bgimg{
+    width:100%;
+    position:relative;
+}
+.h_flashimg{
+    position:absolute;
+    width:100%;
+    top:0px;
+    left:0px;
+}
+.nav_wrap{ position:relative; width:100%; height:30px; top:0px; left:0px; padding-top:19px; padding-bottom:6px; font-family:"黑体"; color:#333333; font-size:.9rem; }
+.nav_lit{ position:relative; float:left; text-align:center; display:block; }
+.nav_lit:last-child{ clear:right; }
+
+.tleline{
+    position:absolute;
+    bottom:0px;
+    width:30px;
+    z-index:1;
+}
+.bgline{
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    left:0px;
+}
+.session{
+    -webkit-transition:all ease .5s;
+    z-index:-1;
+    opacity:0;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    overflow-y:auto;
+}
+.sollow{
+    -webkit-overflow-scrolling: touch;
+}
+.display{
+    z-index:99;
+    opacity:1;
+}
+

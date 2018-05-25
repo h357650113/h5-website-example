@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="css/comm.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<script src="js/jquery-1.11.2.min.js"></script>
+<title>宝宝成长记录</title>
+</head>
+<body>
+
+<img src="img/phome/bg.jpg" class="commmbg">
+
+<div id="pageContain">  
+    <div class="page page1 current">
+        <div class="contain">
+            <div class="ph_title">
+                <img src="img/phome/tt.png" class="commimg">
+                <img src="img/phome/tp.png" class="commmbg">
+            </div>
+            <div class="ph_btns">
+                <div class="ph_btn popout1">
+                    <img src="img/phome/1.png" class="commimg">
+                    <img src="img/phome/1t.png" class="commmbg">
+                </div>
+                <div class="ph_btn popout2">
+                    <img src="img/phome/2.png" class="commimg">
+                    <img src="img/phome/2t.png" class="commmbg">
+                </div>
+                <div class="ph_btn popout3">
+                    <img src="img/phome/3.png" class="commimg">
+                    <img src="img/phome/3t.png" class="commmbg">
+                </div>
+            </div>
+            <img src="img/phome/boy.png" class="ph_boy fadeIn">
+            <img src="img/arrow.png" class="arrow flash">
+        </div>
+    </div>
+    
+    <div class="page page2">
+        <div class="contain">
+            <div class="pa_t">
+                <img src="img/pall/t.png" class="commimg">
+                <div class="pa_text1 h3">
+                    <div class="float_l arc_l">2016年3月2号</div><div class="float_l arc_m">宝宝第</div><div class="float_l arc_r">一次见到小白</div>
+                </div>
+            </div>
+            <div class="pa_text">
+                <img src="img/pall/text.png" class="commimg">
+                <div class="text">
+                    小白已经陪伴宝宝度过了128天啦
+                </div>
+            </div>
+            <div class="pa_cont">
+                <img src="img/pall/bg.png" class="commimg">
+                <div class="cont">
+                    <h3>最近一个月内</h3>
+                    <h5>宝宝动画片看的有点多哦，学习比较少,爸爸妈妈要让宝宝多多学习哦</h5>
+                </div>
+                <div class="pie_box">
+                    <canvas id="papie" class="zoomIn"></canvas>
+                    <div class="pa_study popout2">
+                        <img src="img/pall/study.png" class="commimg">
+                    </div>
+                    <div class="pa_play popout3">
+                        <img src="img/pall/play.png" class="commimg">
+                    </div>
+                </div>
+            </div>
+            <img src="img/arrow.png" class="arrow flash">
+        </div>
+    </div>
+    
+    <div class="page page3">
+        <div class="contain">
+            <div class="pmu_t">
+                <img src="img/pmu/t.png" class="commimg">
+                <div class="pmu_tit h3">
+                    <div class="float_l arc_l">宝宝今天已</div><div class="float_l arc_m">经看了</div><div class="float_l arc_r">68分钟动画片</div>
+                </div>
+                <div class="pmu_text">
+                    <h3>最近一个月</h3>
+                    <h5>宝宝一共看了5部动画片看的有点多哦要保护视力</h5>
+                </div>
+            </div>
+            <div class="pmu_tg">
+                <img src="img/pmu/tg.png" class="commimg">
+                <div class="text">
+                    宝宝学最近一个月看的动画片榜单
+                </div>
+            </div>
+            <div class="pmu_stage">
+                <img src="img/pmu/stage.png" class="commimg">
+                <div class="cont">
+                    <div class="m1 fadeIn1">
+                        <img src="img/pmu/m1.png" class="commimg">
+                        <img src="img/pmu/m1.jpg" class="simg">
+                        <div class="stext">
+                            猫和老鼠
+                        </div>
+                    </div>
+                    <div class="l1 fadeIn2">
+                        <img src="img/pmu/l1.jpg" class="simg">
+                        <div class="stext">
+                            大头儿子小头爸爸
+                        </div>
+                    </div>
+                    <div class="r1 fadeIn3">
+                        <img src="img/pmu/r1.jpg" class="simg">
+                        <div class="stext">
+                            大耳朵多
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="img/arrow.png" class="arrow flash">
+        </div>
+    </div>
+    
+    <div class="page page4">
+        <div class="contain">
+            <div class="pmat_t">
+                <img src="img/pmat/t.png" class="commimg">
+                <div class="text h3">
+                    <div class="arc_l float_l">截止到今天</div><div class="arc_m float_l">宝宝一共练习</div><div class="arc_r float_l">了32课课程</div>
+                </div>
+            </div>
+            <div class="pmat_pie">
+                <img src="img/pmat/pie.png" class="commimg">
+                <div class="pie_box2">
+                    <canvas id="papie2" class="zoomIn"></canvas>
+                </div>
+            </div>
+            <div class="pmat_tg">
+                <img src="img/pmat/tg.png" class="commimg">
+                <div class="text">
+                    宝宝最近一个月学的诗词有点少
+                </div>
+            </div>
+            <div class="pmat_bar">
+                <canvas id="bar1" width="310px" height="180px" class="fadeIn2"></canvas>
+            </div>
+            <img src="img/arrow.png" class="arrow flash">
+        </div>
+    </div>
+    
+    <div class="page page5">
+        <div class="contain">
+            <div class="pmth_t">
+                <img src="img/pmth/t.png" class="commimg">
+            </div>
+            <div class="pmth_tg">
+                <img src="img/pmth/tg.png" class="commimg">
+                <div class="text">
+                    截止到今天宝宝一共学会了3课数学
+                </div>
+            </div>
+            <div class="pmth_mt">
+                <img src="img/pmth/mt.png" class="commimg">
+                <div class="mt">
+                    宝宝最快学会的课程是：认识数字123，只用了一天时间，宝宝太厉害了
+                </div>
+                <div class="text">
+                    宝宝学的最多的数学课程排行榜
+                </div>
+            </div>
+            <div class="pmu_stage">
+                <img src="img/pmu/stage.png" class="commimg">
+                <div class="cont">
+                    <div class="m1 fadeIn1">
+                        <img src="img/pmu/m1.png" class="commimg">
+                        <img src="img/pmu/m1.jpg" class="simg">
+                        <div class="stext">
+                            认识数字123
+                        </div>
+                    </div>
+                    <div class="l1 fadeIn2">
+                        <img src="img/pmu/l1.jpg" class="simg">
+                        <div class="stext">
+                            大头儿子小头爸爸
+                        </div>
+                    </div>
+                    <div class="r1 fadeIn3">
+                        <img src="img/pmu/r1.jpg" class="simg">
+                        <div class="stext">
+                            大耳朵多
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="img/arrow.png" class="arrow flash">
+        </div>
+    </div>
+    
+    <div class="page page6">
+        <div class="contain">
+            <div class="pms_t">
+                <img src="img/pms/t.png" class="commimg">
+            </div>
+            <div class="pms_cont" id="touchwrap">
+                <div id="touch">
+                <img src="img/pms/成长记录(1里程碑）.png" class="commimg">
+                <img src="img/pms/成长记录(1里程碑）.png" class="commimg">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page page7">
+        <div class="contain">
+            <div class="pe_t">
+                <img src="img/end/tbg.png" class="commimg">
+                <div class="h3 tittle">
+                    感谢爸爸妈妈
+                </div>
+                <div class="text">
+                    给我带来了新的小伙伴--小白<br>
+                    有了小白的陪伴我的生活充满了乐趣学到了更多的知识<br>
+                    小白已经成为了我最要好的小伙伴<br>
+                    爱你小白<br>
+                </div>
+            </div>
+            <div class="pe_btn">
+                <img src="img/end/btns.png" class="commimg">
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<ul id="navBar">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+<div id="loading">
+    <div id="loading_text"></div>
+    <img src="img/pmat/bar.png" style="width:1px; opacity:0; position:absolute">
+</div>
+</body>
+<script src="js/fullpage.mini.js"></script>
+<script src="js/imgloading.js"></script>
+<script src="js/index.js"></script>
+</html>

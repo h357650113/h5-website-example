@@ -1,0 +1,181 @@
+/***
+  *
+***/
+@charset "utf-8";
+html {
+    -ms-touch-action: none;
+}
+body,
+div,
+h1,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+img {
+    display: block;
+    border:none;
+}
+body {
+	width: 100%;
+    *cursor: default;
+	overflow: hidden;
+	font: 16px/1.5 "Microsoft YaHei",Helvetica,STHeiti STXihei,Microsoft JhengHei,Arial;
+}
+#loading{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,1);
+    top:0px;
+    left:0px;
+    z-index:99;
+}
+#pageContain {
+	overflow: hidden;
+}
+.page {
+    box-shadow: 1px 1px 4px 0 #000;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+    background-image:url(../img/phome/bg.jpg);
+    background-size:100%;
+}
+.contain {
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: relative;
+    overflow:hidden;
+    top:0px;
+    left:0px;
+	z-index: 0;
+}
+.current .contain,.slide .contain {
+	display: block;
+}
+.current {
+	display: block;
+	z-index: 1;
+}
+.slide {
+	display: block;
+	z-index: 2;
+}
+.swipe {
+    display: block;
+    z-index: 3;
+    transition-duration: 0ms !important;
+    -webkit-transition-duration: 0ms !important;
+}
+
+#navBar{ position:absolute; opacity:0; z-index:-1; }
+/** end fullpage **/
+
+.commmbg{ position:absolute; width:100%; top:0px; left:0px; } 
+.commimg{ position:relative; width:100%; top:0px; left:0px; }
+.arrow{ position:absolute; width:100%; bottom:0px; left:0px; z-index:9; }
+
+.float_l{ float:left; }
+.float_l:last-child{ clear:right; }
+
+    .arc_l{ -webkit-transform:rotate(8deg) translateX(-2px); transform:rotate(8deg) translateX(-2px); }
+    .arc_r{ -webkit-transform:rotate(-9deg) translateX(3px); transform:rotate(-9deg) translateX(3px); }
+    .arc_m{ -webkit-transform:translateY(7px); transform:translateY(7px); }
+    
+.h3 { color:white; text-shadow: 1px 1px 1px rgba(0,0,0,.3); font-size:16px; font-weight:800; font-family:"黑体"; }
+
+.m1{ position:absolute; width:30%; top:8%; left:34.5%; z-index:-1; }
+    .m1 .simg{ width:60%; position:absolute; top:24%; left:20%; z-index:-1; border-radius:3px; overflow:hidden; }
+    .m1 .stext{ width:100%; position:absolute; top:0%; left:0px; color:white; font-size:14px; text-shadow: 1px 1px 1px rgba(0,0,0,.3); text-align:center; }
+    
+.l1{ position:absolute; width:30%; height:92px; top:16%; left:13%; z-index:-1; }
+    .l1 .simg{ width:60%; position:absolute; top:24%; left:20%; z-index:-1; border-radius:3px; overflow:hidden; }
+    .l1 .stext{ width:100%; position:absolute; top:0%; left:0px; color:white; font-size:14px; text-shadow: 1px 1px 1px rgba(0,0,0,.3); text-align:center; }
+    
+.r1{ position:absolute; width:30%; height:92px; top:21.5%; right:13%; z-index:-1;  }
+    .r1 .simg{ width:60%; position:absolute; top:24%; left:20%; z-index:-1; border-radius:3px; overflow:hidden; }
+    .r1 .stext{ width:100%; position:absolute; top:0%; left:0px; color:white; font-size:14px; text-shadow: 1px 1px 1px rgba(0,0,0,.3); text-align:center; }
+
+/** pages **/
+.ph_title{ position:relative; width:100%; margin-top:15%; }
+.ph_btns{ position:relative; margin-top:5%; width:100%; height:30%;  }
+    .ph_btn{ position:relative; width:25%; float:left; margin-right:2%; }
+    .ph_btn:first-child{ margin-left:10.5%; }
+    .ph_btn:last-child{ clear:right; }
+    .ph_boy{ position:absolute; bottom:0px; left:0px; width:100%; }
+    
+.pa_t{ position:relative; width:100%; margin-top:1%; }
+    .pa_text1{ position: absolute; bottom: 29%; left: 16%; }
+.pa_text{ position:relative; width:100%; }
+    .pa_text .text{ position:absolute; top:0px; left:0px; margin-left:21%; color:white; }
+    
+.pa_cont{ position:relative; width:85%; margin-left:7.5%; }
+    .pa_cont .cont{ position:absolute; top:22%; left:9%; width:77%; color:#24aaea; }
+    .cont h5{ margin-top:10px; }
+    .pie_box{ position:absolute; top:44%; left:-5.5%; }
+    
+    #papie{ width:360px; height:180px; }
+    .pa_study{ position: absolute; width: 75px; bottom: 2%; right: 29%; }
+    .pa_play{ position: absolute; width: 75px; bottom: 55%; left: 29%; } 
+    
+.pmu_t{ position:relative; width:100%; margin-top:1%; }
+    .pmu_tit{ position:absolute; width:100%; top:24%; left:20%; }
+    .pmu_text{ position:absolute; width:45%; top:51%; left:11%; }
+    .pmu_text h3{ color : #ffffff }
+    .pmu_text h5{ color : #eecea1 }
+ 
+.pmu_tg { position:relative; width:100%; color:white; }
+    .pmu_tg .text{ position:absolute; top:0px; left:0px; margin-left:18.5%; color:white; }
+    
+.pmu_stage{ position:relative; width:90%; margin-left:5%; }
+    .pmu_stage .cont{ position:absolute; width:100%; height:100%; top:0px; left:0px; }
+    
+.pmat_t{ position:relative; width:100%; }
+    .pmat_t .text{ position:absolute; top:51%; left:15%; }
+    
+.pmat_pie{ position:relative; width:85%; margin-left:7.5%; }
+    .pie_box2{ position:absolute; top:24%; left:3.5%; }
+    #papie2{ width:300px; height:150px; }
+    
+.pmat_tg{ position:relative; width:100%; }
+    .pmat_tg .text{ position:absolute; width:100%; text-align:center; color:white; top:0px; left:0px; font-size:15px; }
+    
+.pmat_bar{ position:relative; width:100%; text-align:center; overflow:hidden;}
+
+.pmth_t{ position:relative; width:100%; }
+.pmth_tg{ position:relative; width:100%; }
+    .pmth_tg .text{ position:absolute; width:100%; top:0px; left:0px; text-align:center; color:white; font-size:15px; }
+    
+.pmth_mt{ position:relative; width:100%; }
+    .pmth_mt .mt{ position:absolute; width:75%; top:24%; left:13.5%; font-size:14px; color:#2596e1; }
+    .pmth_mt .text{ position:absolute; width:100%; bottom:1%; font-size:15px; color:white; text-align:center; }
+    
+.pms_t{ position:relative; width:100%; }
+.pms_cont{ position:relative; width:100%; height:65%; overflow:scroll; -webkit-overflow-scrolling:touch; z-index:9; display:block; }
+
+
+.pe_t{ position:relative; width:100%; }
+    .pe_t .tittle{ position:absolute; width:100%; z-index:9; top:25%; text-align:center; font-size:17px; }
+    .pe_t .text{ font-size:15px; color:#fff1bf; position:absolute; top:34%; width:75%; left:17%; line-height:2em; }
+.pe_btn{ position:relative; width:100%; }
+
+#touch{ width:100%; position:relative; top:0px; left:0px; }

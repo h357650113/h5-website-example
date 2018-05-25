@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{ padding:0; margin:0; overflow:hidden; }
+img{ vertical-align:top; padding:0; border:none; }
+.ani { transition:all ease .7s; -webkit-transition:all ease .7s; transform:translate3d(); -webkit-transform:translate3d(); }
+
+.page{ position:absolute; width:100%; height:100%; top:0px; left:0px; }
+.com_imgbg{ position:absolute; width:100%; top:0px; left:0px; }
+.key_lock{ position:absolute; width:100%; top:70%; }
+.key{ position:absolute; width:100%; }
+
+@-webkit-keyframes around{
+    0%{ -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
+
+@keyframes around{
+    0%{ transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+.around{
+    -webkit-animation:around linear infinite 1.4s;;
+    animation:around linear infinite 1.4s;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
+.flash {
+  -webkit-animation: flash 1s ease infinite;
+          animation: flash 1s ease infinite;
+}
+
+.box_wrap{ position:absolute; width:100%; height:100%; top:0px; left:0px; display:none; opacity:0; }
+     .box{ position:absolute; width:100%; top:0px; left:0px; }
+
+#keyimg{ display:none; }
+.particle_wrap{ position:absolute; width:100%; height:100%; z-index:999; }
+#myCanvas{ position:absolute; width:100%; height:100%; }
+</style>
+</head>
+<body>
+<div class="Allstuff">
+    <div class="page">
+        <img src="img/home/bg5.jpg" class="com_imgbg bg ani" id="map">
+        <img src="img/home/bg4.jpg" class="com_imgbg bg ani">
+        <img src="img/home/bg3.jpg" class="com_imgbg bg ani">
+        <img src="img/home/bg2.jpg" class="com_imgbg bg ani">
+        <img src="img/home/bg1.jpg" class="com_imgbg bg flash ani">
+        <canvas id="myCanvas">
+        Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <div class="key_lock ani" id="key_lock">
+            <img src="img/home/key.png" class="key">
+            <img src="img/home/keyl.png" class="key around">
+        </div>
+        <div class="box_wrap ani" id="box">
+            <img src="img/home/boxd.png" class="box">
+            <img src="img/home/boxu.png" class="box ani" id="boxup">
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+var win = {
+    w : $(window).width(),
+    h : $(window).height()
+}
+
+$('#key_lock').on('touchstart',function(){
+    animateInterval(Ani,30);
+})
+
+var Ani = [  
+    { func : function(){
+        $('.bg:eq(4)').css('display','none');
+        $('.bg:eq(3)').css('opacity','0');
+        $('#key_lock').css('opacity','0');
+        },
+      timer : 20,
+      order : false,
+    },
+    {
+      func : function () {
+            $('#myCanvas').css('display','none');
+            $('#box').css('display','block');
+            $('#box').css('opacity','1');
+        },
+      timer : 40
+    },
+    {
+      func : function(){
+          $('#boxup').css('-webkit-transform','translate3d(0px,-400px,0px)')
+        },
+      timer : 60
+    },
+    {
+      func : function(){
+          $('.bg:eq(2)').css('opacity','0');
+          $('.bg:eq(1)').css('opacity','0');
+        },
+       timer : 65
+    },
+    {
+        func : function(){
+            $('#map').css('-webkit-transform','scale(3,3) rotate(55deg)')
+        },
+        timer : 85
+    },
+    {
+        func : function(){
+            $('.bg:eq(0)').css('opacity','0');
+            $('#box').css('opacity','0');
+        },
+        timer : 110
+    },
+    {
+      func : function(){
+          window.location.href = "car.html";
+        },
+       timer : 120
+    }
+]
+
+
+function animateInterval (Ani,timer) {
+    var len = Ani.length;  
+    var i = 0;  
+    var lon;  
+    var maxnum = 0; 
+    var sig = 0;    
+
+    if(!Ani[0].order){  
+        for(var i = 0; i < len; i ++){
+            for(var j = 0; j < len; j ++){
+               if(Ani[i].timer < Ani[j].timer){
+                    var middle = Ani[i];
+                    Ani[i] = Ani[j];
+                    Ani[j] = middle;
+               }
+            }
+            if(Ani[i].timer > maxnum) maxnum = Ani[i].timer;  
+        }
+        lon = maxnum + 1;
+        Ani[0].order = true;   
+        Ani[0].leng = lon;     
+    } else {
+        lon = Ani[0].leng;
+    }
+
+    i = 0;  
+    var t = setInterval (function(){
+        if(lon == i){   
+            clearInterval(t); return;
+        }
+
+        if( Ani[sig].timer == i ){
+            Ani[sig].func();
+            sig++;
+        }
+        i++;
+    },timer);
+}
+
+</script>
+
+<script>
+var f = 750/1334;
+window.onload = function(){
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	
+	//Make the canvas occupy the full page
+	var W = window.innerWidth, H = window.innerHeight;
+	canvas.width = W;
+	canvas.height = H;
+	
+	var particles = [];
+	var mouse = {};
+	
+	//Lets create some particles now
+	var particle_count = 50;
+	for(var i = 0; i < particle_count; i++)
+	{
+		particles.push(new particle());
+	}
+	
+	//finally some mouse tracking
+	
+	function particle()
+	{
+		//speed, life, location, life, colors
+		//speed.x range = -2.5 to 2.5 
+		//speed.y range = -15 to -5 to make it move upwards
+		//lets change the Y speed to make it look like a flame
+		this.speed = {x: -2.5+Math.random()*5, y: -15+Math.random()*10};
+		//location = mouse coordinates
+		//Now the flame follows the mouse coordinates
+
+	    this.location = {x: W/2, y: H*.7}
+		//radius range = 10-30
+		this.radius = 10+Math.random()*20;
+		//life range = 20-30
+		this.life = 20+Math.random()*10;
+		this.remaining_life = this.life;
+		//colors
+		this.r = Math.round(Math.random()*255);
+		this.g = Math.round(Math.random()*255);
+		this.b = Math.round(Math.random()*255);
+	}
+	
+	function draw()
+	{
+		//Painting the canvas black
+		//Time for lighting magic
+		//particles are painted with "lighter"
+		//In the next frame the background is painted normally without blending to the 
+		//previous frame
+		ctx.globalCompositeOperation = "source-over";
+        ctx.clearRect(0, 0, W, H);
+		ctx.fillStyle = "rgba(0,0,0,.1)";
+		ctx.fillRect(0, 0, W, H);
+		ctx.globalCompositeOperation = "lighter";
+		
+		for(var i = 0; i < particles.length; i++)
+		{
+			var p = particles[i];
+			ctx.beginPath();
+			//changing opacity according to the life.
+			//opacity goes to 0 at the end of life of a particle
+			p.opacity = Math.round(p.remaining_life/p.life*100)/100
+			//a gradient instead of white fill
+			var gradient = ctx.createRadialGradient(p.location.x, p.location.y, 0, p.location.x, p.location.y, p.radius);
+			gradient.addColorStop(0, "rgba("+p.r+", "+p.g+", "+p.b+", "+p.opacity+")");
+			gradient.addColorStop(0.5, "rgba("+p.r+", "+p.g+", "+p.b+", "+p.opacity+")");
+			gradient.addColorStop(1, "rgba("+p.r+", "+p.g+", "+p.b+", 0)");
+			ctx.fillStyle = gradient;
+			ctx.arc(p.location.x, p.location.y, p.radius, Math.PI*2, false);
+			ctx.fill();
+			
+			//lets move the particles
+			p.remaining_life--;
+			p.radius--;
+			p.location.x += p.speed.x;
+			p.location.y += p.speed.y;
+			
+			//regenerate particles
+			if(p.remaining_life < 0 || p.radius < 0)
+			{
+				particles[i] = new particle();
+			}
+		}
+	}
+	
+	setInterval(draw, 1000/30);
+}
+</script>
+
+</html>

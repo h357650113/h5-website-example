@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>探秘奇图</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{ padding:0; margin:0; overflow:hidden; }
+img{ vertical-align:top; padding:0; border:none; }
+.ani { transition:all ease 1.2s; -webkit-transition:all ease 1.2s; transform:translate3d(); -webkit-transform:translate3d(); }
+
+.page{ position:absolute; width:100%; height:100%; top:0px; left:0px; overflow:hidden; }
+.com_imgbg{ position:absolute; width:100%; top:0px; left:0px; }
+.key_lock{ position:absolute; width:100%; top:70%; }
+.key{ position:absolute; width:100%; }
+
+.Allstuff {margin:0; padding:0; overflow:hidden; position:relative; }
+
+@-webkit-keyframes around{
+    0%{ -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
+
+@keyframes around{
+    0%{ transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+.around{
+    -webkit-animation:around linear infinite 1.4s;;
+    animation:around linear infinite 1.4s;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {opacity: 0.6;}
+  25%, 75% {opacity: 1;}
+}
+
+@keyframes flash {
+  0%, 50%, 100% {opacity: 0.6;}
+  25%, 75% {opacity: 1;}
+}
+
+.flash {
+  -webkit-animation: flash 5s ease infinite;
+          animation: flash 5s ease infinite;
+}
+
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {opacity: 0.3;}
+  25%, 75% {opacity: 0.7;}
+}
+
+@keyframes flash {
+  0%, 50%, 100% {opacity: 0.3;}
+  25%, 75% {opacity: 0.7;}
+}
+
+.flash2{
+  -webkit-animation: flash 3s ease infinite;
+          animation: flash 3s ease infinite;
+}
+
+.box_wrap{ position:absolute; width:100%; height:100%; top:0px; left:0px; display:none; opacity:0; }
+     .box{ position:absolute; width:100%; top:0px; left:0px; }
+
+#keyimg{ display:none; }
+.particle_wrap{ position:absolute; width:100%; height:100%; z-index:999; }
+
+.tips {
+    position:absolute;
+    top:89%;
+    left:0;
+    width:100%;
+}
+.tips1 {
+    position:absolute;
+    top:86%;
+    left:0;
+    width:100%;
+}
+
+@-webkit-keyframes ani-tips {
+  0%, 100% {opacity: 0.5;}
+  50% {opacity: 1;}
+}
+
+@keyframes ani-tips {
+  0%, 100% {opacity: 0.5;}
+  50% {opacity: 1;}
+}
+.ani-tips{
+  -webkit-animation: ani-tips 2s ease infinite;
+          animation: ani-tips 2s ease infinite;
+}
+
+@-webkit-keyframes ani-tips1 {
+  0%, 100% {top:86%; opacity: 0.5;}
+  50% {top:86.8%; opacity: 1;}
+}
+@keyframes ani-tips1 {
+  0%, 100% {top:86%; opacity: 0.5;}
+  50% {top:86.8%; opacity: 1;}
+}
+.ani-tips1{
+  -webkit-animation: ani-tips1 0.5s ease infinite;
+          animation: ani-tips1 0.5s ease infinite;
+}
+#keybtn {
+    position: absolute;
+    top: 71%;
+    width: 22%;
+    left: 39%;
+}
+
+.flame {
+    position: absolute;
+    top: 80%;
+    left: 49%;
+    opacity: 0;
+}
+.flame1 {
+    position: absolute;
+    top:70%;
+    left: 25%;
+    opacity: 0;
+}
+.flame2 {
+    position: absolute;
+    top: 65%;
+    left: 80%;
+    opacity: 0;
+}
+@-webkit-keyframes ani-flame1 {
+    0% {top:80%; left:49%; opacity:0; transform: rotate(0deg);}
+    50% {top:56%; left:15%; opacity:1; transform: rotate(90deg);}
+    80% {top:30%; left:30%; opacity:0.7; transform: rotate(90deg);}
+    100% {top:10%; left:10%; opacity:0; transform: rotate(0deg);}
+}
+@keyframes ani-flame1 {
+    0% {top:80%; left:49%; opacity:0; transform: rotate(0deg);}
+    50% {top:56%; left:15%; opacity:1; transform: rotate(90deg);}
+    80% {top:30%; left:30%; opacity:0.7; transform: rotate(0deg);}
+    100% {top:10%; left:10%; opacity:0; transform: rotate(90deg);}
+}
+.ani-flame1{
+  -webkit-animation: ani-flame1 3s linear 0s infinite;
+          animation: ani-flame1 3s linear 0s infinite;
+}
+
+@-webkit-keyframes ani-flame2 {
+    0% {top:80%; left:49%; opacity:0; rotate(0deg);}
+    50% {top:60%; left:30%; opacity:0.5; rotate(90deg);}
+    75% {top:40%; left:28%; opacity:0.7; rotate(0deg);}
+    95% {top:25%; left:5%; opacity:0.7; rotate(90deg);}
+    100% {top:20%; left:5%; opacity:0; rotate(0deg);}
+}
+@keyframes ani-flame2 {
+    0% {top:80%; left:49%; opacity:0; rotate(0deg);}
+    50% {top:60%; left:30%; opacity:0.5; rotate(90deg);}
+    75% {top:40%; left:28%; opacity:0.7; rotate(0deg);}
+    95% {top:25%; left:5%; opacity:0.7; rotate(90deg);}
+    100% {top:20%; left:5%; opacity:0; rotate(0deg);}
+}
+.ani-flame2{
+  -webkit-animation: ani-flame2 3s linear 1s infinite;
+          animation: ani-flame2 3s linear 1s infinite;
+}
+
+@-webkit-keyframes ani-flame3 {
+    0% {top:80%; left:49%; opacity:0; rotate(0deg);}
+    30% {top:68%; left:54%; opacity:1; rotate(90deg);}
+    50% {top:60%; left:50%; opacity:0.8; rotate(180deg);}
+    70% {top:57%; left:47%; opacity:0.5; rotate(270deg);}
+    90% {top:55%; left:48%; opacity:0.2; rotate(0deg);}
+    100% {top:50%; left:49%; opacity:0; rotate(0deg);}
+}
+@keyframes ani-flame3 {
+    0% {top:80%; left:49%; opacity:0; rotate(0deg);}
+    30% {top:68%; left:54%; opacity:1; rotate(90deg);}
+    50% {top:60%; left:50%; opacity:0.8; rotate(180deg);}
+    70% {top:57%; left:47%; opacity:0.5; rotate(270deg);}
+    90% {top:55%; left:48%; opacity:0.2; rotate(0deg);}
+    100% {top:50%; left:49%; opacity:0; rotate(0deg);}
+}
+.ani-flame3{
+  -webkit-animation: ani-flame3 2s linear 3s infinite;
+          animation: ani-flame3 2s linear 3s infinite;
+}
+
+@-webkit-keyframes ani-flame4 {
+    0% {top:73%; left:30%; opacity:0; rotate(0deg);}
+    30% {top:70%; left:25%; opacity:1; rotate(90deg);}
+    50% {top:68%; left:20%; opacity:0.8; rotate(180deg);}
+    70% {top:62%; left:17%; opacity:0.5; rotate(270deg);}
+    90% {top:58%; left:15%; opacity:0.2; rotate(0deg);}
+    100% {top:57%; left:11%; opacity:0; rotate(0deg);}
+}
+@keyframes ani-flame4 {
+    0% {top:73%; left:30%; opacity:0; rotate(0deg);}
+    30% {top:70%; left:25%; opacity:1; rotate(90deg);}
+    50% {top:68%; left:20%; opacity:0.8; rotate(180deg);}
+    70% {top:62%; left:17%; opacity:0.5; rotate(270deg);}
+    90% {top:58%; left:15%; opacity:0.2; rotate(0deg);}
+    100% {top:57%; left:11%; opacity:0; rotate(0deg);}
+}
+
+.ani-flame4{
+  -webkit-animation: ani-flame4 3s linear 2.7s infinite;
+          animation: ani-flame4 3s linear 2.7s infinite;
+}
+
+@-webkit-keyframes ani-flame5 {
+    0% {top:65%; left:66%; opacity:0; rotate(0deg);}
+    30% {top:60%; left:68%; opacity:1; rotate(90deg);}
+    50% {top:58%; left:63%; opacity:0.8; rotate(180deg);}
+    70% {top:55%; left:53%; opacity:0.5; rotate(270deg);}
+    90% {top:40%; left:48%; opacity:0.2; rotate(0deg);}
+    100% {top:37%; left:38%; opacity:0; rotate(0deg);}
+}
+@keyframes ani-flame5 {
+    0% {top:65%; left:66%; opacity:0; rotate(0deg);}
+    30% {top:60%; left:68%; opacity:1; rotate(90deg);}
+    50% {top:58%; left:63%; opacity:0.8; rotate(180deg);}
+    70% {top:55%; left:53%; opacity:0.5; rotate(270deg);}
+    90% {top:40%; left:48%; opacity:0.2; rotate(0deg);}
+    100% {top:37%; left:38%; opacity:0; rotate(0deg);}
+}
+.ani-flame5{
+  -webkit-animation: ani-flame5 4s linear 3s infinite;
+          animation: ani-flame5 4s linear 3s infinite;
+}
+
+@-webkit-keyframes ani-flame6 {
+    0% {top:55%; left:35%; opacity:0; rotate(0deg);}
+    30% {top:50%; left:32%; opacity:1; rotate(90deg);}
+    50% {top:48%; left:27%; opacity:0.8; rotate(180deg);}
+    70% {top:44%; left:30%; opacity:0.5; rotate(270deg);}
+    90% {top:40%; left:33%; opacity:0.2; rotate(0deg);}
+    100% {top:37%; left:38%; opacity:0; rotate(0deg);}
+}
+@keyframes ani-flame6 {
+    0% {top:55%; left:35%; opacity:0; rotate(0deg);}
+    30% {top:50%; left:32%; opacity:1; rotate(90deg);}
+    50% {top:48%; left:27%; opacity:0.8; rotate(180deg);}
+    70% {top:44%; left:30%; opacity:0.5; rotate(270deg);}
+    90% {top:40%; left:33%; opacity:0.2; rotate(0deg);}
+    100% {top:37%; left:38%; opacity:0; rotate(0deg);}
+}
+.ani-flame6{
+  -webkit-animation: ani-flame5 4s linear 3s infinite;
+          animation: ani-flame5 4s linear 3s infinite;
+}
+
+#loading{ position:absolute; width:100%; height:100%; top:0px; left:0px; z-index:9999; background-color:#000000; }
+
+#load_bar{ width:0%; position:absolute; opacity:0; }
+.load_bar{ position:absolute; top:0px; left:0px; width:100%; }
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-28973716-1', 'auto');  
+  
+  
+  ga('set', 'dimension3', '移动端');
+    
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');  
+  ga(function(tracker) {
+    ga('set', 'dimension4', tracker.get('clientId'));
+  });
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">window._pt_lt = new Date().getTime();</script>
+</head>
+<body>
+<img src="img/share.jpg" style="height:1px; position:absolute; z-index:-1">
+<div id="loading">
+    <img src="img/loading/loading.jpg" class="load_bar">
+    <div id="load_bar">
+        <img src="img/loading/loadingb.png" class="load_bar">
+    </div>
+    <img src="img/loading/loading.png" class="load_bar">
+</div>
+<div class="Allstuff">
+    <div class="page">
+        <img src="img/kong.png" class="com_imgbg bg ani">
+        <img src="img/home/bg6.jpg" class="com_imgbg bg ani" id="map">
+        <div class="box_wrap ani" id="box">
+            <img src="img/home/boxd.png" class="box">
+            <img src="img/home/boxu.png" class="box ani" id="boxup">
+        </div>
+        <!--<img src="img/home/bg2.jpg" class="com_imgbg bg ani">-->
+        <img src="img/home/bg7.jpg" class="com_imgbg bg ani">
+        <img src="img/home/bg3.jpg" class="com_imgbg bg ani">
+        <!-- <img src="img/home/light.png" class="com_imgbg flash" id="light"> -->
+        <div class="key_lock ani" id="key_lock">
+            <!--<img src="img/home/key2.png" class="key flash2">-->
+            <img src="img/home/key.png" class="key">
+            <img src="img/home/keyl.png" class="key around">
+        </div>
+        <img src="img/home/flame1.png" class="flame ani-flame1" id="flame1">
+        <img src="img/home/flame2.png" class="flame ani-flame2" id="flame2">
+        <img src="img/home/flame3.png" class="flame ani-flame3" id="flame3">
+        <img src="img/home/flame1.png" class="flame1 ani-flame4" id="flame4">
+        <img src="img/home/flame1.png" class="flame1 ani-flame5" id="flame5">
+        <img src="img/home/flame1.png" class="flame1 ani-flame6" id="flame6">
+        
+        <img src="img/home/flames.png" class="com_imgbg bg flames ani">
+        <img src="img/home/shadow.png" class="com_imgbg bg flash2 ani" id="shadow">
+        <img src="img/home/tips1.png" class="tips1 ani-tips1">
+        <img src="img/home/tips.png" class="tips ani-tips">
+        <img src="img/home/key_btn.png" id="keybtn">
+    </div>
+</div>
+<script type="text/javascript">
+ window._pt_sp_2 = [];
+ _pt_sp_2.push('setAccount,500fe99b');
+ var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+ 
+ (function() {
+  var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+  atag.src = _protocol + 'js.ptengine.cn/js/pta.js';
+  var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+  stag.src = _protocol + 'js.ptengine.cn/js/pts.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+ })();
+</script>
+
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+var f = 480/854;
+
+var win = {
+    w : $(window).width(),
+    h : $(window).height()
+}
+$('#load_bar').css('height',win.w/f);
+$('.load_bar').css('width',win.w);
+
+$(document).on('touchstart',function(e){
+    e.preventDefault();
+})
+
+$('#keybtn').on('touchstart',function(){
+    $('#shadow').removeClass('flash');
+    $(this).hide();
+    animateInterval(Ani,30);
+})
+
+var Ani = [  
+    { func : function(){
+        $('.bg:eq(4)').css('opacity','0');
+        $('#shadow').hide();
+        $('.bg:eq(3)').css('opacity','0');
+        $('#key_lock').css('opacity','0');
+        //$('#light').css('opacity','0');
+        $('.tips').fadeOut();
+        $('.tips1').fadeOut();
+        $('.flames').fadeOut();
+        
+        $('#flame1').removeClass('ani-flame1');
+        $('#flame2').removeClass('ani-flame2');
+        $('#flame3').removeClass('ani-flame3');
+        $('#flame4').removeClass('ani-flame4');
+        $('#flame5').removeClass('ani-flame5');
+        $('#flame6').removeClass('ani-flame6');
+        
+        $('.flame').hide();
+      },
+      timer : 20,
+      order : false,
+    },
+    {
+        func : function () {
+            $('#box').css('display','block');
+            $('#box').css('opacity','1');
+        },
+      timer : 40
+    },
+    {
+      func : function(){
+          $('#boxup').css('-webkit-transform','translate3d(0px,-400px,0px)')
+        },
+      timer : 60
+    },
+    {
+      func : function(){
+        $('.box_wrap').css('opacity', '0');
+          $('.bg:eq(2)').css('opacity','0');
+          //$('.bg:eq(1)').css('opacity','0');
+        },
+       timer : 65
+    },
+    {
+        func : function(){
+            $('#map').css({'-webkit-transform':'scale(3,3) rotate(55deg)','opacity':'0.9'})
+        },
+        timer : 85
+    },
+    {
+      func : function(){
+         _pt_sp_2.push('setPVTag,' + window.location.href + ',replace');
+          window.location.href = "car.html";
+        },
+       timer : 110
+    }
+]
+
+
+function animateInterval (Ani,timer) {
+    var len = Ani.length;  
+    var i = 0;  
+    var lon;  
+    var maxnum = 0; 
+    var sig = 0;    
+
+    if(!Ani[0].order){  
+        for(var i = 0; i < len; i ++){
+            for(var j = 0; j < len; j ++){
+               if(Ani[i].timer < Ani[j].timer){
+                    var middle = Ani[i];
+                    Ani[i] = Ani[j];
+                    Ani[j] = middle;
+               }
+            }
+            if(Ani[i].timer > maxnum) maxnum = Ani[i].timer;  
+        }
+        lon = maxnum + 1;
+        Ani[0].order = true;   
+        Ani[0].leng = lon;     
+    } else {
+        lon = Ani[0].leng;
+    }
+
+    i = 0;  
+    var t = setInterval (function(){
+        if(lon == i){   
+            clearInterval(t); return;
+        }
+
+        if( Ani[sig].timer == i ){
+            Ani[sig].func();
+            sig++;
+        }
+        i++;
+    },timer);
+}
+
+$('.Allstuff').css({'width':win.w,'height':win.h});
+var rate = win.w/480;
+var th = (win.h-854*rate)/2-4;
+$('.com_imgbg').css({'top':th+'px'});
+</script>
+<script>
+var loadingImages = [
+"img/kong.png",
+"img/home/bg6.jpg",
+"img/home/boxd.png",
+"img/home/boxu.png",
+"img/home/bg7.jpg",
+"img/home/bg3.jpg",
+"img/home/key.png",
+"img/home/keyl.png",
+"img/home/flame1.png",
+"img/home/flame2.png",
+"img/home/flame3.png",
+"img/home/flames.png",
+"img/home/shadow.png",
+"img/home/tips1.png",
+"img/home/tips.png",
+"img/home/key_btn.png",
+];
+resourceDir = "";
+
+function loadResources(urls, progress) {
+    var loadedCount = 0;
+    var loaded = function() {
+        ++loadedCount;
+        if (progress) progress(urls.length, loadedCount, this);
+    };
+    for (var i = 0; i < urls.length; ++i) {
+        if (!urls[i]) {
+            loaded();
+            // alert(1);
+            return;
+        }
+        var img = new Image();
+        img.onload = loaded;
+        img.onabort = loaded;
+        img.onerror = loaded;
+        img.src = resourceDir + urls[i];
+    }
+}
+loadResources(loadingImages, function(n, i, img) {
+    var stmei
+    $('#load_bar').css('opacity',1);
+    $('#load_bar').css('width',Math.round(i * 100 / n) + "%");
+    if (i != n) return;
+    stmei = setTimeout(function() {
+        $("#loading").fadeOut();
+    }, 800);
+    
+    function myStopFunction() {
+        clearTimeout(stmei);
+    }
+})
+</script>
+<script src="./js/share.js"></script>
+<script>
+window.shareData = {
+    title: '寻宝图已上线，请充值好智商or运气!',
+    desc: '跨世纪寻宝计划已开启，是拼智商，还是靠运气，就看你实力了',
+    link: 'http://bluescfg.sinaapp.com/',
+    imgUrl: 'http://bluescfg.sinaapp.com/img/share.jpg',
+    success: function () {
+    },
+    cancel: function () { 
+}};
+setupwx();
+ </script>
+
+</html>

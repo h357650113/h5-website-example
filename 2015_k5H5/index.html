@@ -1,0 +1,549 @@
+                                                                              <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>全新K5 致臻致美</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-20720276-3', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link href="css/index.css" rel="stylesheet">
+    <SCRIPT SRC="http://www.dyk.com.cn/webtrends/dcs_tag.js" TYPE="text/javascript"></SCRIPT>
+    <script type="text/javascript" >
+    (function() {
+    var dc = document.createElement('script'); dc.type = 'text/javascript'; dc.async = true;
+    dc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dcjs.cig.com.cn/dc.js?8';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(dc, s);
+    })();
+    </script>
+    <style type="text/css">
+    body,
+    div,
+    p {
+    	margin: 0;
+    	padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    body {
+    	width: 100%;
+        *cursor: default;
+    	overflow: hidden;
+    	font: 16px/1.5 "Microsoft YaHei",Helvetica,STHeiti STXihei,Microsoft JhengHei,Arial;
+    }
+    #pageContain {
+    	overflow: hidden;
+    }
+    .page {
+    	display: none;
+    	width: 100%;
+    	height: 100%;
+    	overflow: hidden;
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    }
+    .contain {
+    	width: 100%;
+    	height: 100%;
+    	display: none;
+    	position: relative;
+    	z-index: 0;
+    }
+    .current .contain,.slide .contain {
+    	display: block;
+    }
+    .current {
+    	display: block;
+    	z-index: 1;
+    }
+    .slide {
+    	display: block;
+    	z-index: 2;
+    }
+    .swipe {
+        display: block;
+        z-index: 3;
+        transition-duration: 0ms !important;
+        -webkit-transition-duration: 0ms !important;
+    }
+    </style>
+</head>
+<!--[if lte IE 7]>      
+<body scroll="no"> 
+<![endif]-->
+<!--[if gt IE 7]><!--> 
+<body> 
+<!--<![endif]-->
+<div class="horizontal">
+    <h1>请您保持横屏浏览并重新读取网站</h1>
+</div>
+<script>
+    //var load_horiz = 0;
+    if(window.innerWidth>window.innerHeight){
+        document.getElementsByClassName('horizontal').item(0).style.display = 'block';
+        //load_horiz = 1;
+    }
+</script>
+<div id="loading">
+    <img src="img/loading.jpg" width="100%">
+    <h3 id="loadtxt">0%</h3>
+        <div class="loadwrap">
+            <img src="img/lodt1.png" class="loadtxt">
+            <div class="txtbox" id="txtbox">
+                <img src="img/lodt2.png" class="loadtxt">
+            </div>
+        </div>
+</div>
+<div id="all">
+    <div class="logobox">
+        <img src="img/logo.png" class="comm_img" id="logobg">
+        <div class="logo_mu"><img src="img/kong.png"></div>
+    </div>
+    <div class="home action">
+        <div class="middle">
+            <img src="img/p0/0.jpg" class="comm_img">
+            <img src="img/p0/2.png" class="comm_img ttxt" id="p0txt">
+            <img src="img/p0/0.png" class="comm_img" style="bottom:4%">
+            <img src="img/p0/1.png" class="comm_img" id="home_drag" style="bottom:4%">
+            <img src="img/p0/sig.png" class="comm_img flash">
+        </div>
+    </div>
+	<div id="pageContain">
+		
+		<div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p1/w/1.jpg" class="comm_img">
+                            <img src="img/p1/w/1.png" class="comm_img ltxt" id="p1t">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p1/b/1.jpg" class="comm_img">
+                            <img src="img/p1/b/1.png" class="comm_img rtxt" id="p1bt">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+		<div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p2/1.jpg" class="comm_img p2wbg">
+                            <img src="img/p2/2.jpg" class="comm_img p2wbg">
+                            <img src="img/p2/3.jpg" class="comm_img p2wbg">
+                            
+                            <img src="img/p2/1.png" class="comm_img ttxt" id="p2wt">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                            <img src="img/p2/lockp.png" class="lockp2" id="lockp2">
+                        </div>
+                        <div class="session">
+                            <img src="img/p2/b/1.jpg" class="comm_img action" id="p2bg">
+                            <img src="img/p2/b/1.png" class="comm_img rtxt action" id="p2bt">
+                            <img src="img/p2/b/2.jpg" class="comm_img">
+                            <img src="img/p2/b/2.png" class="comm_img ttxt" id="p2bt2">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">               
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+		<div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                             <img src="img/p3/w/1.jpg" class="comm_img" id="p3wbg">
+                             <img src="img/p3/w/t.png" class="comm_img ltxt" id="p3wt">
+                             <img src="img/sb.png" class="comm_img navb flash">
+                             <img src="img/sm.png" class="comm_img navml flash">
+                             <div class="p3btnarea">
+                                <img src="img/p3/w/1.png" class="comm_img_litr" id="p3wli">
+                                <div id="biglight">
+                                    <img src="img/kong.png">
+                                </div>
+                                <div id="ledlight">
+                                    <img src="img/kong.png">
+                                </div>
+                              </div>
+                        </div>
+                        <div class="session">
+                            <img src="img/p3/b/1.jpg" class="comm_img" id="p3bg">
+                            <img src="img/p3/b/1.png" class="comm_img" id="p3blig">
+                            <img src="img/p3/b/t.png" class="comm_img rtxt" id="p3bt">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">  
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p4/w/1.jpg" class="comm_img">
+                            <img src="img/p4/w/1.png" class="comm_img ltxt" id="p4wt">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p4/b/1.jpg" class="comm_img">
+                            <img src="img/p4/b/1.png" class="comm_img rtxt" id="p4bt">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">  
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p5/w/1.jpg" class="comm_img" id="p5wbg">
+                            <img src="img/p5/w/t1.png" class="comm_img ltxt" id="p5wt">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p5/b/1.jpg" class="comm_img" id="p5bg">
+                            <img src="img/p5/b/t1.png" class="comm_img rtxt" id="p5bt">
+                            <div class="p5btn">
+                                <img src="img/p5/b/1.png" class="comm_img" id="p5bbg">
+                                <div id="p5b1" class="p5b" data-rol="1"><img src="img/kong.png"></div>
+                                <div id="p5b2" class="p5b" data-rol="2"><img src="img/kong.png"></div>
+                            </div>
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p6/w/1.jpg" class="comm_img" id="p6wg">
+                            <img src="img/p6/w/2.png" class="comm_img ltxt" id="p6wt">
+                            <img src="img/p6/w/1.png" class="comm_img" id="p6wp">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p6/b/1.jpg" class="comm_img" id="p6g">
+                            <img src="img/p6/b/t.png" class="comm_img rtxt" id="p6bt">
+                            <img src="img/p6/b/1.png" class="comm_img" id="p6p">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p7/w/1.jpg" class="comm_img" id="p7wbg">
+                            <img src="img/p7/w/t.png" class="comm_img ltxt" id="p7wt">
+                            <div class="p7wbtn">
+                                <img src="img/p7/w/1.png" class="comm_img" id="p7wb">
+                                <div class="p7wb p7bt" data-rol="2"><img src="img/kong.png"></div>
+                                <div class="p7wb p7bb" data-rol="1"><img src="img/kong.png"></div>
+                            </div>
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p7/b/1.jpg" class="comm_img" id="p7bg">
+                            <img src="img/p7/b/t.png" class="comm_img rtxt" id="p7bt">
+                            <div class="p7wbtn">
+                                <img src="img/p7/b/1.png" class="comm_img" id="p7bb">
+                                <div class="p7b p7bt" data-rol="2"><img src="img/kong.png"></div>
+                                <div class="p7b p7bb" data-rol="1"><img src="img/kong.png"></div>
+                            </div>
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p8/w/1.jpg" class="comm_img">
+                            <img src="img/p8/w/1.png" class="comm_img ltxt" id="p8wt">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p8/b/1.jpg" class="comm_img">
+                            <img src="img/p8/b/1.png" class="comm_img rtxt" id="p8bt">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p9/w/1.jpg" class="comm_img">
+                            <div class="p9rode1 comm_img">
+                                <img src="img/p9/w/r.jpg" class="comm_img wrode1">
+                                <img src="img/p9/w/r.jpg" class="comm_img wrode2">
+                                <img src="img/p9/w/1.png" class="comm_img carRuning" id="p9wtcar">
+                            </div>
+                            <img src="img/p9/w/t.png" class="comm_img ltxt" id="p9wt" style="z-index:99">
+                            <img src="img/p9/w/2.png" class="comm_img p9wbcar action" id="id9car1">
+                            <img src="img/p9/w/3.png" class="comm_img p9wbcar action" id="id9car2">
+                            <img src="img/p9/w/p.png" class="comm_img" id="p9w">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p9/b/1.jpg" class="comm_img">
+                            <div class="p9rode2">
+                                <img src="img/p9/b/1.jpg" class="comm_img rod1">
+                                <img src="img/p9/b/1.jpg" class="comm_img rod2">
+                            </div>
+                            <img src="img/p9/b/2.png" class="comm_img p9bcar1">
+                            <img src="img/p9/b/1.png" class="comm_img carRun" id="p9bcar2">
+                            <img src="img/p9/b/21.png" class="comm_img flash p9bcar1"> 
+                            <img src="img/p9/b/t.png" class="comm_img rtxt" id="p9bt">
+                            <img src="img/p9/b/b.png" class="comm_img">
+                            <img src="img/p9/b/st.png" class="comm_img" id="p9bst">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                    <div class="wrap">
+                        <div class="session">
+                            <img src="img/p10/w/1.jpg" class="comm_img">
+                            <img src="img/p10/w/1.png" class="comm_img ltxt" id="p10wt">
+                            <img src="img/sb.png" class="comm_img navb flash">
+                            <img src="img/sm.png" class="comm_img navml flash">
+                        </div>
+                        <div class="session">
+                            <img src="img/p10/b/1.jpg" class="comm_img">
+                            <img src="img/p10/b/1.png" class="comm_img ltxt" id="p10bt">
+                            <img src="img/bb.png" class="comm_img navb flash">
+                            <img src="img/bm.png" class="comm_img navm flash">
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+        <div class="page">
+			<div class="contain">
+				<div class="middle">
+                        <div class="session">
+                            <img src="img/p11/1.jpg" class="comm_img" id="p11t">
+                            <img src="img/p11/1.png" class="comm_img" id="p11cbg">
+                            <div class="p11cbtns" id="p11btn1" data-rol="1"><img src="img/kong.png"></div>
+                            <div class="p11cbtns" id="p11btn2" data-rol="2"><img src="img/kong.png"></div>
+                            <div class="p11cbtns" id="p11btn3" data-rol="3"><img src="img/kong.png"></div>
+                            <div class="p11cbtns" id="p11btn4" data-rol="4"><img src="img/kong.png"></div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+        
+	</div>
+</div>
+	<ul id="navBar">
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+ 		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+	</ul>
+    <div class="bar_wrap action">
+        <img src="img/bartittle.jpg" width="100%">
+        <ul class="barlist">
+            <li class="jumpbar" data-rol="0">首页</li>
+            <li class="jumpbar" data-rol="1">设计</li>
+            <li class="jumpbar" data-rol="4">性能</li>
+            <li class="jumpbar" data-rol="5">安全</li>
+            <li class="jumpbar" data-rol="7">空间</li>
+            <li class="jumpbar" data-rol="8">配置</li>
+            <li class="jumpbar" data-rol="10">预定</li>
+        </ul>
+    </div>
+    <div class="pageList1">
+        <div class="middle">
+            <img src="img/p12/1.jpg" class="comm_img">
+            <div class="list1btns" id="list1b1" data-rol="1"><img src="img/kong.png"></div>
+            <div class="list1btns" id="list1b2" data-rol="2"><img src="img/kong.png"></div>
+            <div class="list1btns" id="list1b3" data-rol="3"><img src="img/kong.png"></div>
+            <div class="list1btns" id="list1b4" data-rol="4"><img src="img/kong.png"></div>
+        </div>
+    </div>
+    
+    <div class="pageList2">
+        <div class="middle">
+            <img src="img/p13/1.jpg" class="comm_img" id="List2bg">
+            <img src="img/p13/return.png" class="p13return">
+            <div class="table_wrap">
+                <div class="line"><input id="name" type="text" value="姓名" width="15rem"></div>
+                <div class="line">您的称谓 <input type="radio" name="sex" value="先生">先生<input type="radio" name="sex" value="先生">女士</div>
+                <div class="line"><input id="tel" type="text" value="手机号码" width="15rem"></div>
+                <div class="line"><select id="province" name="province" selectedindex="1" style="width:7rem">
+                                  <option>请选择省份</option>
+                                  </select>
+                                  <select id="city" name="city" selectedindex="0" style="width:7.5rem" onchange="getdealers();">
+                                  <option>请选择城市</option>
+                                  </select>
+                </div>
+                <div class="line"><select id="dealers" name="dealers" style="width:15rem">
+                                  <option>请选择</option>
+                                  </select>
+                </div>
+                <div class="line">选择车型 <input type="radio" name="cartype" value="k5 ms">K5 MS<input type="radio" name="cartype" value="k5 xs">K5 XS</div>
+            </div>
+            <img src="img/p13/r.png" class="listclear endbtn" data-rol="re"><img src="img/p13/s.png" class="submit endbtn" data-rol="sub">
+        </div>
+    </div>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/fullPage.min.js"></script>
+<script type="text/javascript" src="http://www.dyk.com.cn/public/dyk/js/select.js"></script>
+<script type="text/javascript">
+	
+var runPage;
+
+runPage = new FullPage({
+	id : 'pageContain',                            // id of contain
+	slideTime : 800,                               // time of slide
+	continuous : false,                            // create an infinite feel with no endpoints
+	effect : {                                     // slide effect
+        	transform : {
+        		translate : 'Y',				   // 'X'|'Y'|'XY'|'none'
+        		scale : [1, 1],				   // [scalefrom, scaleto]
+        		rotate : [0, 0]				       // [rotatefrom, rotateto]
+        	},
+        	opacity : [0, 1]                       // [opacityfrom, opacityto]
+    	},                           
+	mode : 'wheel,touch,nav:navBar',               // mode of fullpage
+	easing : 'ease',                             // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1];
+    onSwipeStart : function(index, thisPage) {   // callback before pageChange
+        if(!stage.swipe) return 'stop';
+    },
+    beforeChange : function(index, thisPage) {   // callback before pageChange
+        switch(index){
+            default: break;
+        }
+    },
+    callback : function(index, thisPage) {       // callback when pageChange
+       stage.index = index;
+       look.OnPage(index);
+    }
+});
+
+</script>
+<script src="js/index.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.dyk.com.cn/public/dyk/js/dealersData.js"></script>
+<script type="text/javascript" src="http://www.dyk.com.cn/public/dyk/js/allDealersData.js"></script>
+<script>
+var dealerOptions = {
+    data : data
+}
+var areaSel = new select(dealerOptions);
+areaSel.bind('#province',2);
+areaSel.bind('#city',110000);
+
+function getdealers(cityval){
+    var city= $("#city");
+    if(!cityval){
+        cityval = city.val();
+    }
+
+    $('.jingxiao').html('请从列表中选择经销商');
+    $('#dealer').val('请从列表中选择经销商');
+
+    var provinceval = $('#province').val();
+    var k =  cityval;
+    if( dealersData [k] !== undefined ){
+        var dealers = dealersData [k];
+        dealers = eval(dealers);
+
+        $('#pjs0_cc ul').empty();
+        var _htm = '<option>请选择经销商</option>';
+        var dealerids = [];
+        var newdealers = [];
+        var i=1;
+        $.each(dealers, function(index, val) {
+            if( val.是否为发布状态!="未开通" && val.是否为发布状态!="否" ){
+                newdealers.push(val);
+                dealerids.push( val.bitauto_id );
+                _htm += '<option value="'+val.id+'">';
+                _htm += val.name;
+                _htm += '</option>';
+                i++;
+            }
+        });
+
+        $('#dealers').empty().append(_htm);
+        dealerids = dealerids.join(',');
+        $('#cnt_dealers').html(newdealers.length);
+    }
+}
+getdealers(110000);
+</script>
+</body>
+</html>

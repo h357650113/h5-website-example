@@ -1,0 +1,678 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="js/jquery-1.11.2.min.js"></script>
+<title>成长记录</title>
+<style type="text/css">
+@font-face {
+ font-family: 'fontNameRegular';
+ src: url('text.OTF');
+}  
+.ani_round{
+	animation : round 5s linear infinite;
+	-webkit-animation : round 5s linear infinite;
+}
+@keyframes round
+{
+    0% { transform : rotate(0deg); }
+    100% { transform : rotate(360deg); }
+}
+@-webkit-keyframes round
+{
+    0% { -webkit-transform : rotate(0deg); }
+    100% { -webkit-transform : rotate(360deg); }
+}
+.jumpheart{
+    animation:jumpheart ease .8s infinite;
+    -webkit-animation:jumpheart ease .8s infinite;
+}
+@keyframes jumpheart{
+    0% { transform:scale(.8); opacity:.8; }
+    70% { transform:scale(1); opacity:1; }
+    100% { transform:scale(.8); opacity:.8; }
+}
+@-webkit-keyframes jumpheart{
+    0% { -webkit-transform:scale(.8); opacity:.8; }
+    70% { -webkit-transform:scale(1); opacity:1; }
+    100% { -webkit-transform:scale(.8); opacity:.8; }
+}
+.rotatea{
+    animation : rotatea linear 1s infinite;
+    -webkit-animation : rotatea linear 1s infinite;
+}
+@keyframes rotatea{
+    0% { -webkit-transform : rotate(0deg); }
+    100% { -webkit-transform : rotate(-360deg); }
+}
+@-webkit-keyframes rotatea{
+    0% { -webkit-transform : rotate(0deg); }
+    100% { -webkit-transform : rotate(-360deg); }
+}
+.rotateb{
+    animation : rotateb ease 3s infinite;
+    -webkit-animation : rotateb ease 3s infinite;
+}
+@keyframes rotateb{
+    0% { -webkit-transform : rotate(0deg); }
+    50% { -webkit-transform : rotate(-720deg); }
+    100% { -webkit-transform : rotate(0deg); }
+}
+@-webkit-keyframes rotateb{
+    0% { -webkit-transform : rotate(0deg); }
+    50% { -webkit-transform : rotate(-720deg); }
+    100% { -webkit-transform : rotate(0deg); }
+}
+
+body{
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	color:white;
+}
+img {
+	vertical-align:top;
+	border:none;
+}
+.trans{
+            transition : all ease .8s;
+    -webkit-transition : all ease .8s;
+            transform : translate3d();
+    -webkit-transform : translate3d();
+}
+
+.horizontal{ position:absolute; z-index:999999; width:100%; height:1000px; top:0px; background-color:#000000; display:none; }
+.horizontal h1{ margin-top:20%; color:#FFFFFF; font-size:24px; margin-left:25%; }
+
+#loading{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:9999;
+    background-image:url(img/loading/bg.jpg);
+    background-size:100%;
+    top:0px;
+    left:0px;
+}
+#loadcri_wrap{
+    position:absolute;
+    width:250px;
+    height:253px;
+    top:25%;
+    left:50%;
+    margin-left:-125px;
+    overflow:visible;
+    -webkit-transform:scale(.6);
+}
+#loadcri_wrap img {
+    position:absolute;
+    width:250px;
+    top:0px;
+    left:0px;
+}
+#loading_text{
+    color:#FFFFFF;
+    font-family:"fontNameRegular";
+    font-size:2rem;
+    left:50%;
+    margin-left:-40px;
+    width:80px;
+    height:30px;
+    text-align:center;
+    position:absolute;
+    bottom:-50px;
+}
+#mid_line{
+    position:absolute;
+    width:100%;
+    height:1px;
+    top:46%;
+    
+    display:block;
+}
+#Allstuffs{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+    z-index:9;
+}
+.session{
+	overflow:hidden;
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+    opacity:0;
+}
+.backgif{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:-1;
+}
+.topWrap{
+    position:absolute;
+    width:100%;
+    top:0px;
+    z-index:1;
+}
+.bottomWrap{
+    position:absolute;
+    width:100%;
+    bottom:0px;
+    z-index:1;
+}
+/** robot and earth **/
+.cricle{
+	position:absolute;
+	width:220px;
+    left:50%;
+    margin-left:-110px;
+    margin-top:-80px;
+    
+    opacity:0;
+    -webkit-transform:scale(.1);
+    transform:scale(.1);
+}
+.cricle .cir_img{
+	position:absolute;
+	width:100%;
+	top:0px;
+	left:0px;
+}
+/** user content box **/
+.user_cont{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:220px;
+    height:105px;
+    overflow:hidden;
+    
+    background-image:url(img/round_box/bg.png);
+}
+.user_cont .time_cont{
+    width:220px;
+    height:24px;
+    padding-top:20px;
+    color:#8af0ff;
+    text-align:center;
+    font-size:1rem;
+    font-family:"fontNameRegular";
+}
+.user_cont .text_cont{
+    width:190px;
+    height:45px;
+    padding-left:16px;
+    color:#FFFFFF;
+    text-shadow:rgba(0,0,0,.7);
+    text-align:center;
+    font-size:1rem;
+    line-height:1.2rem;
+    font-family:"fontNameRegular";
+}
+/** roundBox 2016.2.25 hsd - stage-widget -**/
+.roundBox{
+    position:absolute;
+    width:220px;
+    height:105px;
+    left:50%;
+    margin-left:-110px;
+    margin-top:-242px;
+    opacity:0;
+}
+.roundBox .cont{
+    width:220px;
+    height:105px;
+    overflow:hidden;
+}
+.r_comm_img{
+    position:absolute;
+    width:220px;
+    height:105px;
+}
+
+.balls_wrap{
+    position:absolute;
+    width:220px;
+    height:105px;
+    top:0px;
+}
+.r_Circle{
+    position:absolute;
+    width:35px;
+    height:35px;
+    z-index:1;
+}
+/**content***/
+.cont_box{
+    position:absolute;
+    width:220px;
+    height:105px;
+    
+    left:50%;
+    top:7%;
+    
+    margin-left:-110px;
+}
+.cont_dots{
+    position:absolute;
+    width:35px;
+    height:35px;
+    z-index:1;
+}
+.wrap_box{
+    position:absolute;
+    width:220px;
+    height:105px;
+    left:50%;
+}
+.box_cont{
+    width:220px;
+    height:105px;
+    overflow:hidden;
+}
+.wrap_box .box_cont_img{
+    position:absolute;
+    width:220px;
+    height:105px;
+}
+.dot1{
+    top:0px;
+    left:0px;
+}
+.dot2{
+    top:0px;
+    right:0px;
+}
+.dot3{
+    bottom:0px;
+    right:0px
+}
+.dot4{
+    bottom:0px;
+    left:0px;
+}
+.dia0{
+    top:25px;
+    margin-left:-155px;
+}
+.dia1{
+    top:185px;
+    margin-left:-60px;
+}
+.dia2{
+    top:325px;
+    margin-left:-155px;
+}
+.balls{
+    opacity:0;
+}
+/*** session babby ****/
+#babby_cricle{
+    width:220px;
+    height:208px;
+    overflow:visible;
+    position:absolute;
+    
+    margin-top:-191px;
+    left:50%;
+    margin-left:-110px;
+    
+    -webkit-transform:scale(.2);
+    transform:scale(.2);
+    opacity:0;
+}
+.babby_cricle img{
+    top:0px;
+    left:0px;
+    position:absolute;
+    width:220px;
+}
+/***heart***/
+#heart{
+    position:absolute;
+    width:360px;
+    left:50%;
+    margin-left:-180px;
+    margin-top:-22px;
+    opacity:0;
+}
+.heart_wrap img {
+    width:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+/**exhibition**/
+.exh_cont{
+    position:absolute;
+    width:220px;
+    height:57px;
+    left:0px;
+    bottom:-50px;
+}
+.exh_bg{
+    position:absolute;
+    width:220px;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.exh_l{
+    position:absolute;
+    width:50px;
+    left:0px;
+    -webkit-transform:scale(.3);
+    opacity:0;
+}
+.exh_r{
+    position:absolute;
+    width:50px;
+    right:0px;
+    -webkit-transform:scale(.3);
+    opacity:0;
+}
+
+.endPage{
+    position:absolute;
+    width:100%;
+    top:10%;
+    -webkit-transform:scale(.3);
+    opacity:0;
+}
+.end_babby{
+    position:absolute;
+    width:100%;
+    top:0px;
+    z-index:1;
+}
+.end_circle{
+    position:absolute;
+    width:100%;
+    top:0xp;
+}
+.endbutt{
+    position:absolute;
+    width:100%;
+    bottom:56%;
+    -webkit-transform:scale(.3);
+    opacity:0;
+}
+.endbuttn{
+    position:absolute;
+    width:100%;
+    top:0px;    
+}
+.endbuttbg{
+    position:absolute;
+    width:100%;
+    top:0px;
+    
+    animation:flash ease 3s infinite;
+    -webkit-animation:flash ease 3s infinite;
+}
+.sharebut{
+    position:absolute;
+    width:80px;
+    bottom:-240px;
+    left:50%;
+    margin-left:-40px;
+}
+.exh_stud{
+    position:absolute;
+    width:80px;
+    height:80px;
+    bottom:8px;
+}
+.exh_stud img{
+    position:absolute;
+    width:80px;
+    opacity:0;
+    transition : all ease .8s;
+    -webkit-transition : all ease .8s;
+}
+@keyframes flash{
+    0% { opacity: 0 };
+    75% { opacity: 1 };
+    100% { opacity: 0 };
+}
+@-webkit-keyframes flash{
+    0% { opacity: 0 };
+    75% { opacity: 1 };
+    100% { opacity: 0 };
+}
+</style>
+</head>
+
+<body>
+<img src="icon.jpg" style="height:1px">
+    <div class="horizontal">
+        <h1>请您保持横屏浏览并重新读取网站</h1>
+    </div>
+    <div id="loading" class="trans">
+        <div id="loadcri_wrap" class="trans">
+            <img src="img/loading/cri1.png" class="loadcri1 rotateb">
+            <img src="img/loading/cri2.png" class="loadcri2 rotatea">
+            <img src="img/loading/cri3.png" class="loadcri3">
+            <div id="loading_text"></div>
+        </div>
+    </div>
+	<img class="backgif" src="back.gif">
+    <img src="img/top.png" class="topWrap">
+    <img src="img/bottom.png" class="bottomWrap">
+	<div id="Allstuffs">
+    	<div class="session trans" id="session1">
+                   
+            <div id="mid_line">
+            
+                <div class="roundBox trans" id="roundBox">
+                    <div class="cont" id="cont_wrap">
+                        <div class="user_cont">
+                            <div class="time_cont">2016.3.29</div>
+                            <div class="text_cont">text user date</div>
+                        </div>
+                        <img src="img/round_box/cont_line.png" id="roundLine" class="r_comm_img">
+                    </div>
+                    <div class="balls_wrap trans" id="balls_wrap">
+                        <img src="img/round_box/boll.png" class="r_Circle dot1">
+                        <img src="img/round_box/boll.png" class="r_Circle dot2">
+                        <img src="img/round_box/boll.png" class="r_Circle dot3">
+                        <img src="img/round_box/boll.png" class="r_Circle dot4">
+                    </div>
+                </div>
+
+                <div class="babby_cricle trans" id="babby_cricle">
+                    <img class="babby_bg" id="babby_bg" src="img/p1/boybg.png">
+                    <img class="babby_face" id="babby_face" src="img/p1/boyface.png">
+                </div>
+                
+                <div class="heart_wrap trans" id="heart">
+                    <img src="img/p1/heartAro.png">
+                    <img src="img/p1/heart.png" id="heart_jump">
+                </div>
+                
+                <div class="cricle trans" id="cricle">
+                    <img src="img/p0/circle_b.png" class="cir_img trans" id="p1_cb">
+                    <img src="img/p0/circle_t.png" class="cir_img trans" id="p1_ct">
+                    <img src="img/p0/robot.png" class="cir_img trans" id="p1_r">
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="session trans">
+            <div class="wrap_box dia0" id="dial0">
+                <div class="box_cont box_cont0" id="dial_wrap0">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img0" id="dial_img0">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont0">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial0">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial0">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial0">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial0">
+                </div>
+            </div>
+            <div class="wrap_box dia1" id="dial1">
+                <div class="box_cont box_cont1" id="dial_wrap1">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img1" id="dial_img1">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont1">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial1">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial1">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial1">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial1">
+                </div>
+            </div>
+            <div class="wrap_box dia2" id="dial2">
+                <div class="box_cont box_cont2" id="dial_wrap2">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img2" id="dial_img2">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont2">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial2">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial2">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial2">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial2">
+                </div>
+            </div>
+        </div>
+        
+        <div class="session trans">
+            <div class="wrap_box dia0" id="dial3">
+                <div class="box_cont box_cont3" id="dial_wrap3">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img3" id="dial_img3">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont3">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial3">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial3">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial3">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial3">
+                </div>
+            </div>
+            <div class="wrap_box dia1" id="dial4">
+                <div class="box_cont box_cont4" id="dial_wrap4">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img4" id="dial_img4">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont2">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial4">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial4">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial4">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial4">
+                </div>
+            </div>
+            <div class="wrap_box dia2" id="dial5">
+                <div class="box_cont box_cont5" id="dial_wrap5">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img5" id="dial_img5">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont5">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial5">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial5">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial5">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial5">
+                </div>
+            </div>
+        </div>
+        
+        <div class="session trans">
+            <div class="wrap_box dia0" id="dial6">
+                <div class="box_cont box_cont6" id="dial_wrap6">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img6" id="dial_img6">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont6">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial6">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial6">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial6">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial6">
+                </div>
+            </div>
+            <div class="wrap_box dia1" id="dial7">
+                <div class="box_cont box_cont7" id="dial_wrap7">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img7" id="dial_img7">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont7">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial7">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial7">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial7">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial7">
+                </div>
+            </div>
+            <div class="wrap_box dia2" id="dial8">
+                <div class="box_cont box_cont8" id="dial_wrap8">
+                    <div class="user_cont">
+                        <div class="time_cont">2016.3.29</div>
+                        <div class="text_cont">text user date</div>
+                    </div>
+                    <img src="img/round_box/cont_line.png" class="box_cont_img box_cont_img8" id="dial_img8">
+                </div>
+                <div class="balls_wrap trans balls" id="p1_cont8">    
+                    <img src="img/round_box/boll.png" class="cont_dots dot1 dial8">
+                    <img src="img/round_box/boll.png" class="cont_dots dot2 dial8">
+                    <img src="img/round_box/boll.png" class="cont_dots dot3 dial8">
+                    <img src="img/round_box/boll.png" class="cont_dots dot4 dial8">
+                </div>
+            </div>
+        </div>
+        
+        <div class="session trans">
+            <div class="endPage trans" id="endPage">
+                <img src="img/pend/babby.png" class="end_babby">
+                <img src="img/pend/circle.png" class="end_circle" id="end_circle">
+            </div>
+            <div class="endbutt trans">
+                <img class="endbuttbg" src="img/pend/endbuttbg.png">
+                <img class="endbuttn" src="img/pend/endbutt.png" id="endbutt">
+                <img class="sharebut" src="img/share.png">
+            </div>
+        </div>
+    </div>
+    <audio autoplay id="bgmusic" loop> 
+        <source src="media.mp3" type="audio/mpeg" >
+    </audio>
+</body>
+
+<script src="js/stage-roundBox.js"></script>
+<script src="js/stage-animateListActions.js"></script>
+<script src="js/stagePlanarMove.js"></script>
+<script src="js/index.js"></script>
+<script src="js/imgloading.js"></script>
+</html>

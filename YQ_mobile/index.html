@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拟脑机器人</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="css/comm.css" rel="stylesheet">
+<script src="http://139.196.24.57/HG/baseLook/js/hgBaseLook-min.js"></script>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/data.js"></script>
+<style>
+.kv_wrap{
+    width:100%; position:relative; margin-top:3px;
+}
+.kv_cont{
+    position:relative;
+    margin:0 .5rem .3rem .5rem;
+    top:0px;
+    left:0px;
+    overflow:hidden;
+}
+.kv_loop{
+    position:absolute;
+    width:100%;
+    left:0px;
+    top:0px;
+}
+.loop{
+    position:relative;
+    -webkit-transition:all ease .8s;
+}
+.kv_loop .loops{
+    float:left;
+}
+.kv_loop .loops:last-child{
+    clear:right;
+}
+.loops img{
+    width:100%;
+}
+
+.video_wrap{
+    width:100%;
+    position:relative;
+    overflow-y:auto;
+    border-bottom:rgba(245, 237, 237, 0.3) 1px ridge;
+}
+.vid_lit{
+    width:46.5%;
+    margin:1.2%;
+    float:left;
+}
+.vid_lit:last-child{
+    clear:right;
+}
+.vid_lit img{
+    width:100%;
+}
+
+.home_p{ position:relative; top:0px; left:0px; }
+.details_p{ position:relative; top:0px; left:0px; }
+.h_kv{ position:relative; width:100%; z-index:999; }
+.h_kvl{ float:left; width:48.5%; margin:1%; display:block; }
+.h_kvl:last-child{ clear:right; width:47.5%; }
+.h_kvl img { width:100%; margin:2px; }
+
+.h_butbox{ position:relative; width:100%; }
+.h_butbox>img { width:100%; }
+.h_butbox>.btn{ position: absolute; top: 58%; right:5%; text-align:right; }
+.btn>img { width:40%; }
+
+.h_cont{ width:100%; position:relative; }
+.h_cont>img{ width:100%; }
+
+.about_p{ position:relative; width:100%; margin-top:3px; }
+.about_p>img{  width:100%; }
+
+.contact_p{ width:100%; }
+.cp_logo{ width:40%; position:relative; margin:10% auto;}
+.cp_logo img { width:100%; }
+
+#android{ position:absolute; bottom:-25%; left:0px; }
+#apple{ position:absolute; bottom:-50%; left:0px; }
+#tvbox{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index:9999;
+    background-color:rgba(0,0,0,.85);
+    display:none;
+}
+#tvClose{
+    color:rgba(255,255,255,1);
+    z-index:999;
+    position:absolute;
+    top:-35px;
+    right:10%;
+    display:block;
+    font-size:1.2em;    
+}
+#tv{
+    position:relative;
+    top:20%;
+    left:50%;
+    margin-left:-160px;
+}
+.tvmiddle{
+    width:100%;
+    position:relative;
+    top:18.5%;
+    overflow:visible;
+}
+
+.kvloop{
+    position:absolute;
+    width:100%;
+    left:0px;
+    top:0px;
+}
+
+.h_new{
+    margin-top:10px;
+    overflow:hidden;
+}
+.new_rignt{
+    float:right;
+}
+.newcs{ border-bottom:rgba(245, 237, 237, 0.3) 1px ridge; width:100%; height:80px; }
+.newcs img { width:90px; float:left; margin-right:10px; margin-left:5px }
+.newcs a{ text-decoration:none; color:rgba(0,0,0,1); }
+.newcs p{ font-size:1em; line-height:1.3em; font-family:"黑体"; font-weight:500; }
+
+#newsmore{ width:48px; margin-right:5px; }
+
+#news_p{
+    width:100%;
+    position:relative;
+}
+
+.news_title h1{
+    font-size: 0.9em;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 5px;
+    margin-top: 13px;
+    color: #ff4a00;
+}
+.news_title div{
+    display:inline-block;
+    font-size:.9em;
+}
+.newslit{
+    border-top:#ebe5ec 1px ridge;
+    margin:5px;
+    padding:10px 14px;
+    font-size:14px;
+    font-family:"黑体";
+}
+.newslit:last-child{
+    border-bottom:#ebe5ec thin ridge;
+}
+.newslit img{
+    width:.2em;
+    margin-left:-12px;
+    margin-top:3px;
+}
+.newslit .newstit{
+    font-weight:600;
+    line-height:1.5em;
+}
+.newslit .newscont{
+    margin-top:5px;
+    line-height:1.5em;
+    color:#666666;
+}
+
+.kvlist{ 
+    position:absolute; 
+    right:2%; 
+    width:60px;
+    overflow:visible;
+    bottom:5px;
+}
+.kvlists{ float:left; border:rgba(204,204,204,1) 1px solid; width:5px; height:2px; margin-right:3px; }
+.kvlists:last-child{ clear:right; }
+
+.hlits{ position:relative; }
+.titlit{ position:absolute; width:250px; height:32px; color:rgba(255,255,255,1); text-shadow:rgba(51,51,51,.6) 1px 1px 1px; bottom: 8px; left:10px; z-index:9; font-family:"黑体"; font-size:0.9em; }
+</style>
+</head>
+<body>
+<img src="img/p_home/kv/1.jpg" style="height:1px;position:absolute;">
+<div id="tvbox"></div>
+<div class="header">
+    <img src="img/p_video/title.jpg" class="bgimg">
+    <img src="img/p_video/title.png" class="h_flashimg">
+</div>
+<div class="nav">
+    <div class="nav_wrap">
+        <div class="nav_lit" data-rol="0" onClick="page.news.hidden()">首页</div>
+        <div class="nav_lit" data-rol="1">产品详情</div>
+        <div class="nav_lit" data-rol="2">使用体验</div>
+        <div class="nav_lit" data-rol="3">关于我们</div>
+        <div class="nav_lit" data-rol="4">app下载</div>
+        <img src="img/p_video/tle_line.png" class="tleline commTar" id="line">
+        <img src="img/p_video/linebg.jpg" class="bgline">
+    </div>
+</div>
+<div class="content">
+    <div class="session display sollow">
+    
+        <div id="news_p" style="display:none">
+            <img src="img/p_news/kv.jpg" width="100%">
+            <div class="news_title">
+                <h1>更多新闻</h1><div onClick="page.news.hidden()">首页 > 新闻中心</div>
+            </div>
+            <div id="newslit" style="width:100%"></div>
+        </div>
+        
+        <div class="home_p" id="home_p">
+        
+            <div class="h_kv">
+                <img src="img/p_home/kv/1.jpg" style="width:100%; z-index:-1; opacity:0">
+                <div id="hkv">
+                    <div class="kvloop" id="hloop"></div>
+                </div>
+            </div>
+            
+            <div class="h_new">
+                <div class="hnew_title">
+                    <strong style="margin-left:1px">|</strong> 新闻中心
+                    <div class="new_rignt">
+                        <img src="img/p_home/more.png" id="newsmore">
+                    </div>
+                </div>
+                <div class="new_cont">
+                    <div class="newcs">
+                        <img src="img/p_home/news/3.jpg">
+                        <p><a href="http://kuaibao.qq.com/s/20160913A049AH00">拟脑机器人小白让“哆啦A梦”不再是梦</a></p>
+                    </div>   
+                    <div class="newcs">
+                        <img src="img/p_home/news/2.jpg">
+                        <p><a href="http://kuaibao.qq.com/s/20160602A037BC00">浙江卫视《华商启示录》隆重推出|机器人小白：学霸智慧和父爱融合的结晶</a></p>
+                    </div>                   
+                </div>
+            </div>
+            
+            <div class="h_butbox">
+                <img src="img/p_home/c/0.jpg">
+                <a href="http://mall.jd.com/index-174466.html" class="btn"><img src="img/p_home/btn.png"></a>    
+            </div>
+            
+            <div class="h_cont">
+                <img src="img/p_home/c/1.jpg">
+                <img src="img/p_home/c/2.jpg">
+                <img src="img/p_home/c/3.jpg">
+                <img src="img/p_home/c/4.jpg">
+                <img src="img/p_home/c/5.jpg">
+                <img src="img/p_home/c/6.jpg">
+                <img src="img/p_home/c/7.jpg">
+                <img src="img/p_home/c/8.jpg">
+                <img src="img/name.jpg" class="bgimg">
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="session">
+    
+        <div class="details_p">
+            <img src="img/p_details/1.jpg" class="bgimg" id="test">
+            <img src="img/p_details/2.jpg" class="bgimg">
+            <img src="img/p_details/3.jpg" class="bgimg">
+            <img src="img/p_details/4.jpg" class="bgimg">
+            <img src="img/p_details/5.jpg" class="bgimg">
+            <img src="img/p_details/6.jpg" class="bgimg">
+            <img src="img/p_details/7.jpg" class="bgimg">
+            <img src="img/p_details/8.jpg" class="bgimg">
+            <img src="img/name.jpg" class="bgimg">
+        </div>
+        
+    </div>
+    
+    <div class="session">
+    
+        <div class="kv_wrap">
+            <div class="kv_cont">
+            <img src="img/p_video/kv/bg.jpg" class="bgimg" id="kv_w">
+            <div class="kv_loop">
+                <div class="loop" id='kvloop'>
+                    <div class="loops"><img src="img/p_video/kv/1.jpg"></div>
+                    <div class="loops"><img src="img/p_video/kv/2.jpg"></div>
+                    <div class="loops"><img src="img/p_video/kv/3.jpg"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <div class="video_wrap" id="video_lit"></div>
+        <img src="img/name.jpg" class="bgimg">
+    </div>
+    <div class="session">
+    
+        <div class="about_p">
+            <img src="img/p_about/1.png">
+            <img src="img/p_about/2.png">
+            <img src="img/p_about/3.jpg">
+            <img src="img/p_about/4.jpg">
+            <img src="img/p_about/5.png">
+            <img src="img/name.jpg" class="bgimg">
+        </div>
+
+    </div>
+    <div class="session">
+    
+        <div class="contact_p">
+            <div class="cp_logo">
+                <img src="img/p_contact/icon.png">
+                <a target="_blank" href="https://itunes.apple.com/cn/app/hao-er-you-howareyou/id1005016284?mt=8" id="android"><img src="img/p_contact/apple.png"></a>
+                <a href="http://robot.yuanqutech.com:8030/ver/download?id=2" id="apple"><img src="img/p_contact/andriod.png"></a>
+            </div>
+        </div>
+        
+    </div>
+   
+</div>
+</body>
+<script src="js/struct.js"></script>
+<script src="js/index.js"></script>
+</html>

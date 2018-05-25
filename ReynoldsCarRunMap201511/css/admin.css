@@ -1,0 +1,159 @@
+body{background-color:#203546;color:#fff;}
+.title{background-color:#203546;height:100px;}
+.title .logo{margin-left:50px;margin-top:10px;}
+.login{height:270px;background-color:#203546;border:1px solid #ccc;width:340px;margin:0 auto;margin-top:50px}
+.login p{font-size:20px;padding-top:10px;padding-bottom:50px;}
+
+.login li input {height:30px;margin-top:10px;width:230px;padding-left:5px;color:#ccc;font-size:13px;line-height:30px;border:1px solid #ccc;border-radius:4px}
+.login li span{width:50px;color:#fff;line-height:30px;display:inline-block;}
+.login .sub input{width:70px;color:#fff;background-color:#203546;float:right;margin-right:30px;line-height:27px}
+
+.main{
+	width:1000px;
+	margin:0 auto;
+	background-color:#fff;
+	color:#000;
+	padding-bottom:30px;
+}
+
+.main table td,.main table th{
+	text-align:center;
+}
+
+.main table th{
+	line-height:50px;
+	height:50px;
+	background-color:#2D2D2D;
+	color:#fff;
+}
+
+.main table tr:hover{
+	background-color:#ddd;
+}
+
+.page{
+	float:right;
+	margin-right:20px;
+}
+.page a{
+	padding:2px 5px;
+	border:1px solid #ddd;
+	margin-right:5px;
+}
+
+.page a.now-page{
+	background-color:#000;
+	color:#fff;
+	border:1px solid #ddd;
+}
+
+.page a:hover{
+	background-color:#000;
+	color:#fff;
+}
+
+.title{
+	height:40px;
+	line-height:40px;
+	background-color:#000;
+	width:100%;
+	margin:0 auto;
+}
+
+.head{
+	width:1000px;
+	margin:0 auto;
+	color:#fff;
+	text-align:right;
+}
+
+.main{
+	margin-bottom:50px;
+}
+
+.main .menu{
+	text-align:left;
+	background-color:#6C9CE6;
+	color:#fff;
+}
+
+.menu li{
+	display:inline-block;
+	line-height:40px;
+	height:40px;
+	padding:0 10px;
+	cursor:pointer;
+}
+
+.menu li.select{
+	border-bottom:1px solid red;
+	color:red;
+}
+
+.menu li:hover{
+	border-bottom:1px solid red;
+	color:red;
+}
+
+.menu a{
+	color:#fff;
+}
+
+.poster{
+	text-align:left;
+	padding:0 10px 0 20px;
+	margin-top:10px;
+}
+.tablelist{border:solid 1px #cbcbcb; width:100%; clear:both;}
+.tablelist td{line-height:35px; text-indent:11px; border-right: dotted 1px #c7c7c7;}
+.tablelink{color:#056dae;}
+.tablelist tbody tr.odd{background:#f5f8fa;}
+.tablelist tbody tr:hover{background:#e5ebee;}
+.tablelist td{
+    color: #867d79;
+    border:solid 1px #cbcbcb;
+}
+.del{
+   cursor: pointer;
+}
+.shezhi{
+   cursor: pointer;
+}
+
+.all{
+	margin-bottom:20px;
+}
+.tanceng{
+  display: none;
+  width: 50%;
+  position: fixed;
+  height: 50%;
+  background: #ffffff;
+  top: 17%;
+  left: 25%;
+    
+}
+.tanceng ul{
+  width: 50%;
+  position: absolute;
+  height: 50%;
+  top: 17%;
+  left: 25%;
+}
+.tanceng ul li{
+    margin-bottom: 20px;
+    list-style: none;
+}
+.button{
+  width: 25%;
+  position: absolute;
+  height: 25%;
+  top: 40%;
+  left: 44%;
+}
+.date{
+  position: absolute;
+  width: 40%;
+  top: 16%;
+  left: 36%;
+}

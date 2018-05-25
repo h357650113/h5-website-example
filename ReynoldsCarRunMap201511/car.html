@@ -1,0 +1,819 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>探秘奇图</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{ padding:0; margin:0; overflow:hidden; }
+img { vertical-align:top; border:none; }
+.com_bg{ position:absolute; width:100%; top:0px; left:0px; }
+.com_btn{ position:absolute; width:100%; left:0px; }
+
+div{ overflow:hidden; }
+
+.ani{ transition:all linear .3; -webkit-transition:all linear .3; }
+.trf{ transform:translate3d(); -webkit-transform:translate3d(); position:absolute; left:0px; top:0px; }
+
+#map{ width:3000px; height:4384px; position:relative;}
+.map{ width:3000px; height:4384px; position:absolute;}
+#mapc{ position:absolute; width:100%; height:100%; overflow:visible;  }
+#car{ width:1200px; height:1200px; z-index:3; position:absolute; }
+
+#pop{ display:none; overflow:visible; }
+.popw{ position:absolute; z-index:9; top:0px; overflow:visible;}
+.pop{ position:absolute; width:100%; height:100%; z-index:9; top:0px; overflow:visible; }
+.close{ top:15%; z-index:999; }
+.price{ bottom:0%; z-index:999; }
+
+#p5{ display:none; }
+#p4{ display:none; }
+#p3{ display:none; }
+#p2{ display:none; }
+#p1{ display:none; }
+
+#hint{ position:absolute; z-index:99; top:0px; display:none; }
+    .hint_btns{ position:absolute; z-index:99; bottom:10%; width:100%; }
+    .hint_btns img{ width:50%; float:left; }
+    .pri{ display:none; }
+#hit{ display:none; float:right; }
+
+.logo{ position:fixed; top:1%; right:1%; width:100%; z-index:9999; }
+
+#loading{ position:absolute; width:100%; height:100%; top:0px; left:0px; z-index:9999; background-color:#000000; background-image:url(img/loadbg.jpg); background-repeat: no-repeat; }
+.load{ position:absolute; width:100%; top:40%; }
+.loadtxt{ position:absolute; width:100%; top:55%; }
+#Allstuff{ display:none; position:absolute; width:100%; height:100%; top:0px; left:0px; }
+
+.spinner {
+  margin: 100px auto;
+  width: 90px;
+  height: 90px;
+  position: relative;
+  text-align: center;
+   
+  -webkit-animation: rotate 2.0s infinite linear;
+  animation: rotate 2.0s infinite linear;
+}
+.mapPoint{ position:absolute; }
+#point1{ top:640px; left:1026px; }
+#point2{ top:1128px; left:1750px; }
+#point3{ top:1620px; left:690px; }
+#point4{ top:1960px; left:1550px; }
+#point5{ top:2540px; left:1270px; }
+
+#Prompt{ position:absolute; z-index:9999; width:100%; height:100%; left:0px; top:0px; }
+#Prompt_text{ bottom:0px; }
+
+#details{ position:absolute; width:100%; height:100%; z-index:99999; display:none; }
+.details_text{ position:relative; width:80%; height:59%; overflow:scroll; margin:0 auto; margin-top:49%; }
+.details-c{ width:100%; }
+#det_close{ z-index:9; top:15%; }
+
+.gameArea{ position:absolute; top: 120px; width:100%; height:100%; overflow:visible; }
+
+#areap1{ position:absolute; width:19%; height:6%; top:57%; left:57%; z-index:9; }
+#areap2{ position:absolute; width:21%; height:9%; top:39%; left:56%; z-index:9; }
+#areap3{ position:absolute; width:17%; height:8%; top:58%; left:30%; z-index:9; }
+#areap4{ position:absolute; width:10%; height:5%; top:50%; left:46%; z-index:9; }
+#areap5{ position:absolute; width:21%; height:12%; top:40%; left:19%; z-index:9; }
+
+.com_wrap{ top:0px; left:0px; position:fixed; }
+#continueGame { position:fixed; width:49%; bottom:2%; left:25%; z-index:9; opacity:0; display:none; }
+
+#music{ position:absolute; z-index:9999; top:10%; right:1%; width:13%; opacity:0.5; }
+
+@keyframes music{
+      0%, 50%, 100% {
+        opacity: 0.4;
+       transform:rotate(-20deg)
+      }
+    
+      25%, 75% {
+        opacity: 1;
+        transform:rotate(20deg)
+      }
+}
+
+@-webkit-keyframes music{
+      0%, 50%, 100% {
+        opacity: 0.4;
+        -webkit-transform:rotate(-20deg)
+      }
+    
+      25%, 75% {
+        opacity: 1;
+        -webkit-transform:rotate(20deg)
+      }
+}
+
+.music{
+    -webkit-animation: music 3s ease infinite;
+            animation: music 3s ease infinite;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.8;
+  }
+}
+
+.flash {
+  -webkit-animation: flash 1s ease infinite;
+          animation: flash 1s ease infinite;
+}
+
+@-webkit-keyframes phone {
+  0%, 50%, 100% {
+    -webkit-transform:rotate(20deg)
+  }
+
+  25%, 75% {
+    -webkit-transform:rotate(-20deg)
+  }
+}
+
+@keyframes phone {
+  0%, 50%, 100% {
+    transform:rotate(20deg)
+  }
+
+  25%, 75% {
+    transform:rotate(-20deg)
+  }
+}
+
+.phone{ 
+  -webkit-animation: phone 5s ease infinite;
+          animation: phone 5s ease infinite;
+          z-index:999;
+}
+
+@-webkit-keyframes around{
+    0%{ -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
+
+@keyframes around{
+    0%{ transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+.around{
+    -webkit-animation:around linear infinite 1.4s;;
+    animation:around linear infinite 1.4s;
+}
+
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.7;
+  }
+}
+
+.flash {
+  -webkit-animation: flash 5s ease infinite;
+          animation: flash 5s ease infinite;
+}
+
+@-webkit-keyframes flash1 {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes flash1 {
+  0%, 50%, 100% {
+    opacity: 0.4;
+  }
+
+  25%, 75% {
+    opacity: 0.7;
+  }
+}
+
+.flash1 {
+  -webkit-animation: flash 2s ease infinite;
+          animation: flash 2s ease infinite;
+}
+
+.horizontal{ position:absolute; z-index:999999; width:100%; height:100%; top:0px; background-color:#000000; display:none; }
+.horizontal h1{ margin-top:20%; color:#FFFFFF; font-size:24px; margin-left:25%; }
+
+#load_bar{ width:0%; position:absolute; opacity:0; }
+.load_bar{ position:absolute; top:0px; left:0px; width:100%; }
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-28973716-1', 'auto');  
+  
+  
+  ga('set', 'dimension3', '移动端');
+    
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');  
+  ga(function(tracker) {
+    ga('set', 'dimension4', tracker.get('clientId'));
+  });
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">window._pt_lt = new Date().getTime();</script>
+</head>
+<script>
+if(window.location.href.indexOf('#')>0){
+    window.location.href = "index.html";
+}
+window.addEventListener("orientationchange", function() { 
+        if(window.orientation == 90 || window.orientation == -90){
+            document.getElementsByClassName('horizontal').item(0).style.display = 'block';
+        } else {
+            window.location.reload();
+        }
+    }, false);
+</script>
+<body>
+<div class="horizontal">
+    <h1>请您保持横屏浏览并重新读取网站</h1>
+</div>
+<script>
+    if(window.innerWidth>window.innerHeight){
+        document.getElementsByClassName('horizontal').item(0).style.display = 'block';
+    }
+</script>
+
+<div id="loading">
+    <img src="img/loading/loading.jpg" class="load_bar">
+    <div id="load_bar" class="ani">
+        <img src="img/loading/loadingb.png" class="load_bar">
+    </div>
+    <img src="img/loading/loading.png" class="load_bar">
+</div>
+<div id="Allstuff">
+
+    <div id="Prompt">
+        <img src="img/Prompt1.png" class="com_bg">
+        <img src="img/Prompt2.png" class="com_bg flash">
+        <img src="img/Prompt3.png" class="com_btn" id="Prompt_text">
+    </div>
+    
+    <div id="details" class="popw">
+        <img src="img/details.png" class="com_bg">
+        <img src="img/close.png" class="com_btn" id="det_close">
+        <div class="details_text">
+            <div>
+                <img src="img/details-c.png" class="details-c">
+            </div>
+        </div>
+    </div>
+    <div class="gameArea">
+        <div class="trf" id="mapc">
+            <div id="map" class="trf">
+                <img src="img/map.jpg" class="map">
+                <img src="img/5s.png" class="mapPoint flash" id="point1">
+                <img src="img/4s.png" class="mapPoint flash" id="point2">
+                <img src="img/3s.png" class="mapPoint flash" id="point3">
+                <img src="img/2s.png" class="mapPoint flash" id="point4">
+                <img src="img/1s.png" class="mapPoint flash" id="point5">
+            </div>
+        </div>
+        <img src="img/car.png" id="car" class="ani">
+        <img src="img/carbgs.png" class="com_wrap">
+    </div>
+    
+    <img src="img/logo.png" class="logo">
+    
+    <div id="pop" class="popw">
+        <div id="p1" class="pop ps">
+            <img src="img/price/p1c.png" class="com_btn close" data-rol='p1'>
+            <img src="img/price/p1g.png" class="com_bg">
+            <img src="img/price/p1p.png" class="com_btn price flash1" data-rol='p1'>
+        </div>
+        <div id="p2" class="pop ps">
+            <img src="img/price/p2c.png" class="com_btn close" data-rol='p2'>
+            <img src="img/price/p2g.png" class="com_bg">
+            <img src="img/price/p2p.png" class="com_btn price flash1" data-rol='p2'>
+        </div>
+        <div id="p3" class="pop ps">
+            <img src="img/price/p3c.png" class="com_btn close" data-rol='p3'>
+            <img src="img/price/p3g.png" class="com_bg">
+            <img src="img/price/p3p.png" class="com_btn price flash1" data-rol='p3'>
+        </div>
+        <div id="p4" class="pop ps">
+            <img src="img/price/p4c.png" class="com_btn close" data-rol='p4'>
+            <img src="img/price/p4g.png" class="com_bg">
+            <img src="img/price/p4p.png" class="com_btn price flash1" data-rol='p4'>
+        </div>
+        <div id="p5" class="pop ps">
+            <img src="img/price/p5c.png" class="com_btn close" data-rol='p5'>
+            <img src="img/price/p5g.png" class="com_bg">
+            <img src="img/price/p5p.png" class="com_btn price flash1" data-rol='p5'>
+        </div>
+    </div>
+    
+    <div id="hint">
+        <img src="img/price/price.png" class="com_bg">
+        <img src="img/price/p1.png" class="com_bg pri" id="pri_pic1">
+        <img src="img/price/p2.png" class="com_bg pri" id="pri_pic2">
+        <img src="img/price/p3.png" class="com_bg pri" id="pri_pic3">
+        <img src="img/price/p4.png" class="com_bg pri" id="pri_pic4">
+        <img src="img/price/p5.png" class="com_bg pri" id="pri_pic5">
+        <img src="img/price/1.png" class="com_bg" id="pri_num">
+        <div id="areap" class="pop">
+            <img src="img/kong.png" id="areap1" class="areas" data-rol='p1'>
+            <img src="img/kong.png" id="areap2" class="areas" data-rol='p2'>
+            <img src="img/kong.png" id="areap3" class="areas" data-rol='p3'>
+            <img src="img/kong.png" id="areap4" class="areas" data-rol='p4'>
+            <img src="img/kong.png" id="areap5" class="areas" data-rol='p5'>
+        </div>
+        <div class="hint_btns">
+            <img src="img/price/pbtn.png" id="hit_more">
+            <img src="img/price/pbtnr.png" id="hit">
+        </div>
+    </div>
+    
+    <img src="img/price/jumpout.png" id="continueGame" class="ani">
+    <img src="img/price/music.png" id="music" class="music">
+    
+    <audio autoplay id="bgmusic" loop>  
+        <source src="img/h.mp3" type="audio/mpeg" >
+    </audio>
+    
+</div>
+<script type="text/javascript">
+ window._pt_sp_2 = [];
+ _pt_sp_2.push('setAccount,500fe99b');
+ var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+ 
+ (function() {
+  var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+  atag.src = _protocol + 'js.ptengine.cn/js/pta.js';
+  var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+  stag.src = _protocol + 'js.ptengine.cn/js/pts.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+ })();
+</script>
+</body>
+<!--<script src="js/jquery-1.11.3.min.js"></script>-->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+/*
+if (location.hash == '#shareflag') {
+    location.href='index.html';
+}
+location.href += '#shareflag';
+*/
+var f = 480/854;
+
+var win = {
+    w : $(window).width(),
+    h : $(window).height()
+}
+$('#load_bar').css('height',win.w/f);
+$('.load_bar').css('width',win.w);
+
+var musicBtn = {
+    state : true,
+    musicPlay : function() {
+        $('#music').addClass('music');
+        var music = document.getElementById('bgmusic');  
+        music.play();           // 播放，或者重新播放
+    },
+    musicStop : function() {
+        $('#music').removeClass('music');
+        var music = document.getElementById('bgmusic');  
+        music.pause();           // 暂停播放
+    },
+    action : function () {
+        if( musicBtn.state ) {
+            musicBtn.musicStop();
+            musicBtn.state = false;
+        } else {
+            musicBtn.musicPlay();
+            musicBtn.state = true;
+        }
+    }
+}
+
+$('#music').on('touchstart',function(){
+    musicBtn.action()
+})
+
+$(document).on('touchstart',function(e){
+    e.preventDefault()
+})
+
+$('#Prompt_text').on('touchstart',function(){
+    $('#details').show('fast');
+});
+
+$('#details').on('touchstart',function(){
+    event.stopPropagation();
+})
+
+$('#det_close').on('touchstart',function(){
+    $('#details').fadeOut('fast');
+})
+
+$('#continueGame').on('touchstart',function(){
+    continueGame.hidden();
+    $('#hint').fadeIn('fast');
+    showHint();
+    priceVal.stopCar = true;
+})
+
+bulid();
+function bulid(){
+    var f = 480 / 854;
+    $('#hint').css({'width':win.h * f,'height':win.h,'left':(win.w-win.h*f)/2});
+    $('.popw').css({'width':win.h * f,'height':win.h,'left':(win.w-win.h*f)/2});
+    $('#car').css({'top':-(1200-win.h)/2,'left':-(1200-win.w)/2});
+	$('.com_wrap').css('width',win.w);
+}
+
+var l = -(3000-win.w)/2;
+var r = -(4384-win.h)/2;
+var IPDEG = 2*3.14/360;
+var SPEED = 5;
+
+$('#map').css({'left':l,'top':r})
+
+var mapArea = {
+     x : [ -1100, 1100 ], 
+     y : [ -1500, 1500 ]
+}
+
+var priceArea = {
+    outArea : true,
+    p1 : [ 150, -150, -400, -685 ],
+    p2 : [ -59, -408, 220, -47 ],
+    p3 : [ 796, 447, 447, 336 ],  
+    p4 : [ -421, -711, 1000, 683 ],
+    p5 : [ 439, 182, 1500, 1123 ]
+}
+
+var priceVal = {
+    piece : 0,
+    pieceNum : [false,false,false,false,false],
+    stopCar : true,
+    date : ''
+}
+
+var map = {
+    r : 0,
+    x : 0,
+    y : 0,
+    g : 0
+}
+
+var START = {
+    shake : 0,
+    loadin : false
+}
+
+$(window).on('deviceorientation',function(){
+    var b = event.beta;
+    var g = event.gamma;
+    
+    if( g < -30 && START && START.loadin){
+        START.shake += 1;
+        if( START.shake >  8){
+            START = false;
+            $('#Prompt').fadeOut('fast');
+            setTimeout(function(){priceVal.stopCar = false},1200);
+        }
+        return;
+    }
+    
+    if(!priceVal.stopCar){
+        map.r += -parseInt(g)/10;
+        
+        if(map.r>360){
+            map.r -= 360;
+        } else if(map.r<-360){
+            map.r += 360;
+        }
+    
+        if( b <= 50 ){
+            map.y += Math.cos(map.r*IPDEG) * SPEED;
+            map.x += Math.sin(map.r*IPDEG) * SPEED;
+        }
+        
+        if( map.x >= mapArea.x[1] ){
+            map.x = mapArea.x[1]
+        } else if ( map.x <= mapArea.x[0] ) {
+            map.x = mapArea.x[0];
+        }
+        if ( map.y >= mapArea.y[1] ) {
+            map.y = mapArea.y[1]
+        } else if ( map.y <= mapArea.y[0] ) {
+            map.y = mapArea.y[0]
+        }
+        
+        mapMove(map.x,map.y,map.r); carMov(g); 
+    }
+    
+    if(map.x < priceArea.p1[0] && map.x > priceArea.p1[1] && map.y < priceArea.p1[2] && map.y > priceArea.p1[3] && !priceVal.pieceNum[0]){
+        //if(!priceVal.pieceNum[0]){
+            priceVal.pieceNum[0] = true;
+            priceVal.piece += 1;
+            carLight('5');
+            SPEED = 2;
+        //}
+        //if(priceArea.outArea){
+            showPop('p1');
+        //priceArea.outArea = false;        
+    } else if (map.x < priceArea.p2[0] && map.x > priceArea.p2[1] && map.y < priceArea.p2[2] && map.y > priceArea.p2[3] && !priceVal.pieceNum[1]) {
+        //if(!priceVal.pieceNum[1]){
+            priceVal.pieceNum[1] = true;
+            priceVal.piece += 1;
+            carLight('4');
+            SPEED = 2;
+        //}
+        //if(priceArea.outArea){}
+        showPop('p2');
+        //priceArea.outArea = false;
+    } else if (map.x < priceArea.p3[0] && map.x > priceArea.p3[1] && map.y < priceArea.p3[2] && map.y > priceArea.p3[3] && !priceVal.pieceNum[2]) {
+        //if(!priceVal.pieceNum[2]){
+            priceVal.pieceNum[2] = true;
+            priceVal.piece += 1;
+            carLight('3');
+            SPEED = 2;
+        //}
+        //if(priceArea.outArea){}
+        showPop('p3');
+        //priceArea.outArea = false;
+    } else if (map.x < priceArea.p4[0] && map.x > priceArea.p4[1] && map.y < priceArea.p4[2] && map.y > priceArea.p4[3] && !priceVal.pieceNum[3]) {
+        //if(!priceVal.pieceNum[3]){
+            priceVal.pieceNum[3] = true;
+            priceVal.piece += 1;
+            carLight('2');
+            SPEED = 2;
+        //}
+        //if(priceArea.outArea){showPop('p4');}
+        showPop('p4');
+        //priceArea.outArea = false;
+    } else if ( map.x < priceArea.p5[0] && map.x > priceArea.p5[1] && map.y < priceArea.p5[2] && map.y > priceArea.p5[3] && !priceVal.pieceNum[4]) {
+        //if(!priceVal.pieceNum[4]){
+            priceVal.pieceNum[4] = true;
+            priceVal.piece += 1;
+            carLight('1');
+            SPEED = 2;
+        //}
+        //if(priceArea.outArea){showPop('p5');}
+        showPop('p5');
+        //priceArea.outArea = false;
+    } else {
+        //priceArea.outArea = true;
+        SPEED = 5;
+    }
+})
+
+$('.areas').on('touchstart',function(){
+    var target = $(this).attr('data-rol');
+    switch(target){
+        case 'p1' : if(priceVal.pieceNum[0]){$('#hint').hide();showPop('p1');};break;
+        case 'p2' : if(priceVal.pieceNum[1]){$('#hint').hide();showPop('p2');};break;
+        case 'p3' : if(priceVal.pieceNum[2]){$('#hint').hide();showPop('p3');};break;
+        case 'p4' : if(priceVal.pieceNum[3]){$('#hint').hide();showPop('p4');};break;
+        case 'p5' : if(priceVal.pieceNum[4]){$('#hint').hide();showPop('p5');};break;
+        default: break;
+    }
+})
+
+function hideAllpop(){
+    $('.ps').css('display','none');
+}
+
+function mapMove(x,y,t){
+    $('#map').css('-webkit-transform','translate3d('+x+'px,'+y+'px,0)');
+    $('#mapc').css('-webkit-transform','rotate('+t+'deg)');
+    $('.mapPoint').css('-webkit-transform','rotate('+(-t)+'deg)')
+}
+
+function carMov(deg){
+    $('#car').css('-webkit-transform','rotate('+deg+'deg)');
+}
+
+function showPop(id){
+    continueGame.hidden();
+    hideAllpop();
+    priceVal.stopCar = true;
+    $('#pop').css('display','block');
+    $('#'+id).fadeIn('fast');
+}
+
+function closeBtn(_this){
+    $('#'+_this).fadeOut('fast');
+    
+    setTimeout(function(){
+        $('#pop').css('display','none');
+        hideAllpop();
+    },400)
+    
+    if ( priceVal.piece == 5 ) { showHint(); }
+    else { setTimeout(function(){priceVal.stopCar = false; },800) }
+}
+
+$('.close').on('touchstart',function(){
+    var id = $(this).attr('data-rol');
+    closeBtn(id);
+    $('#hint').fadeIn('fast');
+    showHint();
+})
+
+function carLight(id){
+    $('#point'+id).removeClass('flash');
+    $('#point'+id).attr('src','img/'+id+'.png');
+}
+
+function showHint(){
+    for(var i = 0; i < 5; i ++){
+        if(priceVal.pieceNum[i]){
+            $('#pri_pic'+(i+1)).css('display','block');
+        }
+    }
+    $('#pri_num').attr('src','img/price/'+priceVal.piece+'.png');
+    jumpTo(priceVal.piece);
+}
+
+$('#hit_more').on('touchstart',function(){
+    $('#hint').fadeOut('fast');
+    setTimeout(function(){priceVal.stopCar = false;},800)
+    closeBtn(priceVal.date);
+    if( priceVal.piece >= 3){ continueGame.showbtn(); }
+})
+
+$('.price').on('touchstart',function(){
+    priceVal.date = $(this).attr('data-rol');
+    jumpTo(priceVal.piece);
+    $('#hint').fadeIn('fast');
+    $('#pop').fadeOut('fast');
+    showHint()
+})
+
+$('#hit').on('touchstart',function(){
+    window.location.href = "result.html";
+})
+
+function jumpTo(get){
+    if(get<3){
+        $('#hit').css('display','none');
+    } else if( get >= 3 && get < 5) {
+        $('#hit').css('display','block');
+    } else if (get==5) {
+        $('#hit_more').css('display','none');
+    }
+    
+    switch(get){
+        case 1: ga('send', 'event', 'C17_Explore game', '第一关', 'C17A01L00Explore game页面第一关'); break;
+        case 2: ga('send', 'event', 'C17_Explore game', '第二关', 'C17A01L00Explore game页面第二关'); break;
+        case 3: ga('send', 'event', 'C17_Explore game', '第三关', 'C17A01L00Explore game页面第三关'); break;
+        case 4: ga('send', 'event', 'C17_Explore game', '第四关', 'C17A01L00Explore game页面第四关'); break;
+        case 5: ga('send', 'event', 'C17_Explore game', '第五关', 'C17A01L00Explore game页面第五关'); break;
+        default: break;
+    }
+}
+
+var continueGame = {
+    showbtn : function(){
+        $('#continueGame').css('display','block');
+        $('#continueGame').css('opacity','1');
+    },
+    hidden : function(){
+        $('#continueGame').css('display','none');
+        $('#continueGame').css('opacity','0');
+    }
+}
+
+var load_img = new Array;
+    load_img = [
+       'img/loading/loading.jpg',
+       'img/loading/loadingb.png',
+       'img/loading/loading.png',
+       'img/price/1.png',
+       'img/price/2.png',
+       'img/price/3.png',
+       'img/price/4.png',
+       'img/price/5.png',
+       'img/price/p1.png',
+       'img/price/p2.png',
+       'img/price/p3.png',
+       'img/price/p4.png',
+       'img/price/p5.png',
+       'img/price/p5.png',
+       'img/price/p1g.png',
+       'img/price/p2g.png',
+       'img/price/p3g.png',
+       'img/price/p4g.png',
+       'img/price/p5g.png',
+       'img/price/price.png',
+       'img/car.png',
+       'img/map.jpg',
+       'img/1.png',
+       'img/2.png',
+       'img/3.png',
+       'img/4.png',
+       'img/5.png',
+       'img/1s.png',
+       'img/2s.png',
+       'img/3s.png',
+       'img/4s.png',
+       'img/5s.png',
+       'img/details.png',
+       'img/details-c.png',
+       'img/carbg.png',
+       'img/carbgs.png'
+    ]
+    
+var img = new Image();      // 声明对象，使用 image 对象中的 onload 方法
+
+var loading = {
+    end : function(){
+        $('#loading').hide();
+        $('#Allstuff').show();
+        START.loadin = true;
+        setTimeout(function(){$('#Prompt').fadeOut('fast');START = false;setTimeout(function(){priceVal.stopCar = false},1200);},5500);
+    }
+}
+
+resourceDir="";
+function loadResources(urls, progress) {
+    var loadedCount = 0;
+    var loaded = function () {
+        ++loadedCount;
+        if (progress) progress(urls.length, loadedCount, this);
+    };
+    for (var i = 0; i < urls.length; ++i) {
+        if (!urls[i]) {
+            loaded();
+            return;
+        }
+        var img = new Image();
+        //resourceMap[urls[i]] = img;
+        img.onload = loaded;
+        img.onabort = loaded;
+        img.onerror = loaded;
+        img.src = resourceDir + urls[i];//+ "?ver=" + j_version;
+        $('#load_bar').css('width',(i/urls.length*100)+'%');
+    }
+}
+
+loadResources(load_img,function (n, i, img) {
+    $('#load_bar').css('opacity',1);
+    $('#load_bar').css('width',Math.round(i * 100 / n) + "%");
+    if (i > load_img.length-1){
+    setTimeout("loading.end()",500)
+    }
+})
+</script>
+<script src="./js/share.js"></script>
+<script>
+window.shareData = {
+    title: '寻宝图已上线，请充值好智商or运气!',
+    desc: '跨世纪寻宝计划已开启，是拼智商，还是靠运气，就看你实力了。',
+    link: 'http://bluescfg.sinaapp.com/?utm_source=Wechat&utm_medium=Share&utm_term=Share&utm_content=Share&utm_campaign=Carshowh5',
+    imgUrl: 'http://bluescfg.sinaapp.com/img/share.jpg',
+    success: function () {
+    },
+    cancel: function () { 
+}};
+setupwx();
+ </script>
+</html>
