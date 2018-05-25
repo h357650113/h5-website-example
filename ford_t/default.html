@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Taurus</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link href="css/default.css" rel="stylesheet">
+</head>
+<!--[if lte IE 7]>      
+<body scroll="no"> 
+<![endif]-->
+<!--[if gt IE 7]><!--> 
+<body> 
+<!--<![endif]-->
+    <div class="logobox">
+        <img src="images/logo_l.png" width="200" height="60" class="logo_l">
+        <img src="images/logo_order.png" width="80" height="80" class="logo_r">
+    </div>
+    
+    <div class="struct">
+        <div class="page current">
+            <div class=" commonpg homepg current">
+                <div class="content_st">
+                    <img class="texth" src="images/hometext.png">
+                    <img class="buttonh" src="images/homebutton.png">
+                </div>
+            </div>
+            
+            <div class=" commonpg carfpg">
+                 <img class="textf" src="images/1.png">
+            </div>
+            <div class=" commonpg carspg">
+                <img class="texts" src="images/2.png">
+            </div>
+            <div class=" commonpg cartpg">
+                <img class="textt" src="images/3.png">
+            </div>
+        </div>
+        
+        <div class="page pagesecond">
+            <div class=" commonpg surroundpg">
+                <img class="mouse_360 flash" src="images/360mouse.png">
+                <div class=" commonpg car360 current"></div>
+                
+                <img class="text360" src="images/360.png">
+                <img src="images/r1.jpg" style="display:none">
+                <img src="images/r2.jpg" style="display:none">
+                <img src="images/r3.jpg" style="display:none">
+                
+                <div class=" t rt1">
+                    <img  src="images/rt1.jpg">
+                    <div class="more" onClick="diaShow()"></div>
+                </div>
+                <div class=" t rt2" >
+                    <img src="images/rt2.jpg">
+                    <div class="more" onClick="diaShow()"></div>
+                </div>
+                <div class=" t rt3">
+                    <img src="images/rt3.jpg">
+                    <div class="more" onClick="diaShow()"></div>
+                </div>
+                
+                <div class="dialog">
+                    <div class="diabox">
+                        <img src="images/arrowl.png" class="arrow">
+                        <div class="diashow">
+                            <div class="diaClose" onClick="diaClose()"></div>
+                        </div>
+                        <img src="images/arrowr.png" class="arrowr">
+                    </div>
+                </div>
+            </div>   
+        </div>
+        
+        <div class="page pagethird">
+        </div>
+    </div>
+    
+    <ul id="navBar">
+		<li id="p1"><img src="images/barS.png" ><img src="images/barhome.png" class="h"></li>
+		<li id="p2"><img src="images/bar.png" ><img src="images/bar360.png" class="s"></li>
+		<li id="p3"><img src="images/bar.png" ></li>
+	</ul>
+
+
+<script type="text/javascript" src="js/jquery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/default.js"></script>
+
+<script>
+    //Click bar for change page
+    $(document).ready(function(e) {
+        barClick();
+        pageoneshow();  
+    });
+    if((navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/7./i)=="7." )|| (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i)=="8.")){ 
+        window.location.href="index.html"; 
+    } 
+    // 兼容 ie 7 8 鼠标滚轮滚动事件
+    document.body.onmousewheel = function(event) {
+        stage.mowheel();
+    };
+
+</script>
+
+</body>
+</html>

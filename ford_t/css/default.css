@@ -1,0 +1,276 @@
+@charset "utf-8";
+/* CSS Document */
+    body,
+    div,
+    p,
+    ul,
+    li{
+    	margin: 0;
+    	padding: 0;
+    }
+    .blur{
+        position:absolute;
+        width:100%;
+        height:100%;
+        z-index:999;
+        overflow:hidden;
+        background-image:url(../images/blur.png);
+    }
+    .blur p{
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    text-align: center;
+    }
+    ul{
+        list-style: none;
+    }
+    img{
+        vertical-align:top;
+        margin: 0;
+    	padding: 0;
+    }
+    body {
+        *cursor: default;
+    	overflow: hidden;
+    	font: 16px/1.5 "Microsoft YaHei",Helvetica,STHeiti STXihei,Microsoft JhengHei,Arial;
+    }
+    .struct{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .logobox{
+        width:100%;
+        position:absolute;
+        z-index:11;
+    }
+    .logo_l{
+        position:absolute;
+        left:0px;
+    }
+    .logo_r{
+        position:absolute;
+        right:0px;
+    }
+    
+    #navBar{
+        position:absolute;
+        right:0px;
+        top:40%;
+        z-index:11;
+    }
+    #navBar li{
+        display:block;
+        cursor:pointer;
+        margin:10px 0;
+        height: 20px;
+        width :88px;
+    }
+    .h{
+        display:block;
+    }
+    .s{
+        display:none;
+    }
+    li img{
+        float:right;
+    } 
+    .page{
+        display:none;
+    	width: 100%;
+    	height: 100%;
+    	overflow: hidden;
+    	position: absolute;
+    }
+    .commonpg{
+        display:none;
+        background-position:center;
+        background-size:auto 100%;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        
+        position:absolute;
+        width:100%;
+        height:100%;
+        right:0px;
+        z-index:1;
+    }
+    .homepg{
+         background-image:url(../images/bghome.jpg);
+    }
+    .content_st{
+        display:none;
+        position:absolute;
+        top:10%;
+        left:10%;
+        width:600px;
+    }
+    .texth{
+        display:none;
+    }
+    .buttonh{
+        display:none;
+        cursor:pointer;
+        position:relative;
+        left:33%;
+    }
+    .carfpg{
+        background-image:url(../images/bg1.jpg);
+        width:0px;
+    }
+    .textf{
+        display:none;
+        position:absolute;
+        top:25%;
+        left:20%;
+        z-index:9;
+    }
+    .carspg{
+        background-image:url(../images/bg2.jpg);
+        width:0px;
+    }
+    .texts{
+        display:none;
+        position:absolute;
+        top:25%;
+        left:20%;
+        z-index:9;
+    }
+    .cartpg{
+        background-image:url(../images/bg3.jpg);
+        width:0px;
+    }
+    .textt{
+        display:none;
+        position:absolute;
+        top:25%;
+        left:20%;
+        z-index:9;
+    }
+    .surroundpg{
+        background-image:url(../images/bg360.jpg);
+        bottom:0px;
+        height:0px;
+        z-index:1;
+    }
+    .mouse_360{
+        position:absolute;
+        bottom:0px;
+        left:46%;
+        z-index:2;
+    }
+    .car360{
+        background-image:url(../images/r1.jpg);
+        z-index:1;
+    }
+    .text360{
+        display:none;
+        position:absolute;
+        top:20%;
+        left:46%;
+        z-index:9;
+    }
+    .t{
+        display:none;
+        position:absolute;
+        width:325px;
+        height:144px;
+        top:15%;
+        z-index:9;
+    }
+    .t img{
+        position:absolute;
+        z-index:2;
+    }
+    .rt1{
+        left:63%;
+    }
+    .rt2{
+        left:40%;
+    }
+    .rt3{
+        left:13%;
+    }
+    .more{
+        cursor:pointer;
+        position:absolute;
+        background-color:rgba(255,255,255,0.00);
+        width:110px;
+        height:45px;
+        right:0px;
+        bottom:0px;
+        z-index:99;
+    }
+    .dialog{
+        display:none;
+        background-image:url(../images/blur.png);
+        position:absolute;
+        width:100%;
+        height:100%;
+        z-index:99;
+    }
+    .diabox{
+        margin:10% auto;
+        width:1035px;
+        height:603px;
+    }
+    .diashow{
+        position:relative;
+        top:52px;
+        left:26px;
+        width:899px;
+        height:496px;
+        background-image:url(../images/diaplay1.jpg);
+        background-repeat:no-repeat;
+        float:left;
+    }
+    .arrow{
+        float:left;
+    }
+    .arrowr{
+        position:relative;
+        float:right;
+        right:0px;
+    }
+    .diaClose{
+        cursor:pointer;
+        position:absolute;    
+        bottom:26px;
+        right:25px;
+        width:109px;
+        height:45px;
+    }
+    .diaClose:hover{
+         background-color:rgba(0,0,0,0.40);
+    }
+    .current{
+        display:block;
+        width:100%;
+        height:100%;
+    }
+    
+    @-webkit-keyframes flash {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+    
+      25%, 75% {
+        opacity: 0.7;
+      }
+    }    
+    @keyframes flash {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+    
+      25%, 75% {
+        opacity: 0.7;
+      }
+    }   
+    .flash {
+      -webkit-animation: flash 3s ease infinite;
+              animation: flash 3s ease infinite;
+    }

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Taurus</title>
+<link href="css/index.css" rel="stylesheet">
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+    <div class="logobox">
+        <img src="images/logo_l.png" width="200" height="60" class="logo_l">
+    </div>
+    
+    <div class="struct">
+        <div class="page pageone current">
+            <div class="blur">
+                <p>4/18 高端亮相</br>4/22~4/28上海国际车展8.1h展馆
+                </p>
+            </div>
+            <div class="Actionbox carh">
+                <img src="images/bghome.jpg" class="commonimg">
+            </div>
+        </div>
+
+
+</body>
+<script src="js/jquery.1.8.2.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(e) {
+        $(window).resize(function(e) {
+            building();
+        });
+    });
+building();
+function building(){  
+        ww = $(document).width();
+        wh = $(document).height();
+        
+        var f = 1440/700;
+        var w = f * wh;
+        var h = wh;
+        var l = -(w - ww)/2;
+        
+        $(".commonimg").width(w+"px");
+        $(".commonimg").css("height",h);
+        $(".commonimg").css("left",l);  
+        $(".carh").width(ww);
+    }
+</script>
+</html>
